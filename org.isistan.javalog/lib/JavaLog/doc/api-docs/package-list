@@ -1,0 +1,13 @@
+JavaLog
+JavaLog.aip
+JavaLog.classpath
+JavaLog.debugger
+JavaLog.debugger.dinterface
+JavaLog.debugger.events
+JavaLog.debugger.gui
+JavaLog.debugger.gui.actions
+JavaLog.debugger.hotpoints
+JavaLog.extension
+JavaLog.mobility
+JavaLog.reflection
+JavaLog.visitor

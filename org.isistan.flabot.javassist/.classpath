@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry exported="true" sourcepath="C:/Documents and Settings/usuario/Escritorio/programas/javassist-3.1RC1/javassist-3.1RC1/src/main" kind="lib" path="lib/javassist.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

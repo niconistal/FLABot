@@ -1,0 +1,254 @@
+#macro (printRole $role)
+	$role.name: $role.component.name ($role.abstractInfo)
+#end
+
+#macro (printCondition $condition)
+	$condition.name (Type: $condition.type)
+#end
+
+<html>
+<head>
+<title>FLABot model report</title>
+</head>
+
+
+<body>
+
+<h1>FLABot model report</h1>
+<p>$flabotFileModel</p>
+
+<h2>Table of Contents</h2>
+<h3><a href="#families">1. Families</a></h3>
+<l>
+#foreach ($family in $flabotFileModel.coreModel.families)
+#set ($familyCount = $velocityCount)
+	<li><a href="#family.$family.name">1.$familyCount. $family.name</a></li>
+#end
+</l>
+
+<h3><a href="#components">2. Components</a></h3>
+<l>
+#foreach ($component in $flabotFileModel.coreModel.components)
+#set ($componentCount = $velocityCount)
+	<li><a href="#component.$component.name">2.$componentCount. $component.name</a></li>
+#end
+</l>
+
+<h3><a href="#responsibilities">3. Responsibilities</a></h3>
+<l>
+#foreach ($responsibility in $flabotFileModel.coreModel.responsibilities)
+#set ($responsibilityCount = $velocityCount)
+	<li><a href="#responsibility.$responsibility.name">3.$responsibilityCount. $responsibility.name</a></li>
+#end
+</l>
+
+<h3><a href="#events">4. Events</a></h3>
+<l>
+#foreach ($event in $flabotFileModel.coreModel.events)
+#set ($eventCount = $velocityCount)
+	<li><a href="#event.$event.name">4.$eventCount. $event.name</a></li>
+#end
+</l>
+
+
+
+<a name="families"></a><h2>1. Families</h2>
+
+#foreach ($family in $flabotFileModel.coreModel.families)
+	#set ($familyCount = $velocityCount)
+
+	<a name="family.$family.name"></a><h3>1.$familyCount. $family.name</h3>
+	
+	<h4>Architectural UCMs</h4>
+	<l>
+	#foreach ($archUCM in $family.architecturalUseCaseMaps)
+	#set ($archUCMCount = $velocityCount)
+		<li>$archUCM.name</li>
+	#end
+	</l>
+	
+	<h4>Functional UCMs</h4>
+	<l>
+	#foreach ($functUCM in $family.functionalUseCaseMaps)
+	#set ($functUCMCount = $velocityCount)
+		<li>$functUCM.name</li>
+	#end
+	</l>
+	
+	#if ($family.familyElement.size() > 0)
+	<h4>Component Redefinitions</h4>
+	<table border=1>
+	<tr>
+		<th>Architectural component</th><th>Functional component</th>
+	</tr>
+	#foreach ($familyElement in $family.familyElement)
+	#if ($familyElement.architecturalComponent != $familyElement.functionalComponent)
+		<tr>
+			<td><a href="#component.$familyElement.architecturalComponent.component.name">#printRole($familyElement.architecturalComponent)</a></td>
+			<td><a href="#component.$familyElement.functionalComponent.component.name">#printRole($familyElement.functionalComponent)</a></td>
+		</tr>
+	#end
+	#end
+	</table>
+	#end
+	
+	#set ($hasEventRedefinition = false)
+	#foreach ($eventMapEntry in $family.events.map().entrySet())
+		#if ($eventMapEntry.key != $eventMapEntry.value)
+			#set ($hasEventRedefinition = true)
+		#end
+	#end
+	#if ($hasEventRedefinition)
+	<h4>Event Redefinitions</h4>
+	<table border=1>
+	<tr>
+		<th>Architectural event</th><th>Functional event</th>
+	</tr>
+	#foreach ($eventMapEntry in $family.events.map().entrySet())
+		#if ($eventMapEntry.key != $eventMapEntry.value)
+		<tr>
+			<td><a href="#event.$eventMapEntry.key.name">$eventMapEntry.key.name</a></td>
+			<td><a href="#event.$eventMapEntry.value.name">$eventMapEntry.value.name</a></td>
+		</tr>
+		#end
+	#end
+	</table>
+	#end
+<br><br>
+#end
+
+
+
+
+
+
+
+<a name="components"></a><h2>2. Components</h2>
+
+#foreach ($component in $flabotFileModel.coreModel.components)
+#set ($componentCount = $velocityCount)
+	<a name="component.$component.name"></a><h3>2.$componentCount. $component.name</h3>
+	
+	#set ($classes = false)
+	#set ($classes = $mappingUtil.getMappedClasses($component))
+	#if ($arrayLengthUtil.getLength($classes) > 0)
+	<h4>Scope</h4>
+	<l>
+		#foreach ($class in $classes)
+			<li>class $class.descriptor</li>
+		#end
+	</l>
+	#end
+	
+	#if ($arrayLengthUtil.getLength($component.superComponents) > 0)
+	<h4>Redefines</h4>
+	<l>
+		#foreach ($superComponent in $component.superComponents)
+		<li><a href="#component.$superComponent.name">$superComponent.name</a></li>
+		#end
+	</l>
+	#end
+	
+	#if ($arrayLengthUtil.getLength($component.subComponents) > 0)
+	<h4>Redefined by</h4>
+	<l>
+		#foreach ($subComponent in $component.subComponents)
+		<li><a href="#component.$subComponent.name">$subComponent.name</a></li>
+		#end
+	</l>
+	#end
+	
+	#if ($component.features.size() > 0)
+	<h4>Responsibilities</h4>
+	<l>
+		#foreach ($responsibility in $component.features)
+			<li><a href="#responsibility.$responsibility.name">$responsibility.name</a></li>
+		#end
+	</l>
+	#end
+<br><br>
+#end
+
+<a name="responsibilities"></a><h2>3. Responsibilities</h2>
+#foreach ($responsibility in $flabotFileModel.coreModel.responsibilities)
+#set ($responsibilityCount = $velocityCount)
+	<a name="responsibility.$responsibility.name"></a><h3>3.$responsibilityCount. $responsibility.name</h3>
+	#if (!$responsibility.description.equals(""))
+	<p>$responsibility.description</p>
+	#end
+	
+	#if ($responsibility.components.size() > 0)
+	<h4>Featuring Components</h4>
+	<l>
+	#foreach ($component in $responsibility.components)
+		<li><a href="#component.$component.name">$component.name</a></li>
+	#end
+	</l>
+	#end
+	
+	#set ($behaviors = false)
+	#set ($behaviors = $mappingUtil.getMappedBehaviors($responsibility))
+	#if ($arrayLengthUtil.getLength($behaviors) > 0)
+	<h4>Mapping to code</h4>
+	<l>
+	#foreach ($behavior in $behaviors)
+		<li>$behavior.descriptor</li>
+	#end
+	</l>
+	#end
+	#set ($strategy = $mappingUtil.getStateDeterminationStrategy($responsibility))
+	#if ($strategy.traceInferenceStrategy.prologCode)
+	<h4>State Determination Strategy</h4>
+	
+	<TEXTAREA NAME="comments" ROWS=5 COLS=90 style="border: 1px solid #17547F">$strategy.traceInferenceStrategy.prologCode</TEXTAREA>	
+	#end
+	
+	
+	#if ($responsibility.preconditions.size() > 0)
+	<h4>Preconditions</h4>
+	<table border=1>
+	<tr>
+		<th>Precondition</th><th>Type</th><th>Target responsibility</th><th>Event</th>
+	</tr>
+		#foreach ($condition in $responsibility.preconditions)
+		<tr>
+			<td>$condition.name</td>
+			<td>$condition.type</td>
+			<td><a href="#responsibility.$condition.dependencyResponsibility.name">$condition.dependencyResponsibility.name</a></td>
+			<td><a href="#event.$condition.event.name">$condition.event.name</a></td>
+		</tr>
+		#end
+	</table>
+	#end
+	
+	#if ($responsibility.postconditions.size() > 0)
+	<h4>Postconditions</h4>
+	<table border=1>
+	<tr>
+		<th>Postcondition</th><th>Type</th><th>Target responsibility</th>
+	</tr>
+		#foreach ($condition in $responsibility.postconditions)
+		<tr>
+			<td>$condition.name</td>
+			<td>$condition.type</td>
+			<td><a href="#responsibility.$condition.dependencyResponsibility.name">$condition.dependencyResponsibility.name</a></td>
+		</tr>
+		#end
+	</table>
+	#end
+<br><br>
+#end
+
+<a name="events"></a><h2>4. Events</h2>
+
+#foreach ($event in $flabotFileModel.coreModel.events)
+#set ($eventCount = $velocityCount)
+	<a name="event.$event.name"></a><h3>4.$eventCount. $event.name</h3>
+	<h4>Condition</h4>
+		<TEXTAREA NAME="comments" ROWS=5 COLS=90 style="border: 1px solid #17547F">$event.conditionEvent</TEXTAREA>	
+<br><br>
+#end
+
+
+</body>
+</html>

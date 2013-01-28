@@ -1,0 +1,124 @@
+Clocksin built-in predicates:
+----------------------------
+
+consult(X)
+reconsult(X)  NOT IMPLEMENTED
+[File1, File2, ...]  NOT IMPLEMENTED
+
+true
+fail
+
+var(X)
+nonvar(X)
+atom(X)
+integer(X)
+atomic(X)
+
+listing
+listing(X)
+clause(X,Y)  NOT IMPLEMENTED
+asserta(X)   NOT IMPLEMENTED
+assertz(X)
+retract(X)
+
+functor(T,F,N)
+arg(N,T,A)
+name(A,L)
+
+repeat
+
+X , Y
+X ; Y
+call(X)
+not(X)
+
+X = Y
+X \= Y
+X == Y
+X \== Y
+
+get0(X)    NOT IMPLEMENTED
+get(X)   NOT IMPLEMENTED
+skip(X)   NOT IMPLEMENTED
+read(X)   NOT IMPLEMENTED
+put(X)   NOT IMPLEMENTED
+nl
+tab(X)   NOT IMPLEMENTED
+write(X)
+display(X)   NOT IMPLEMENTED
+op(X,Y,Z)
+
+see(X)
+seeing(X)   NOT IMPLEMENTED
+seen
+tell(X)
+telling(X)   NOT IMPLEMENTED
+told
+
+X is Y
+X + Y
+X - Y
+X * Y
+X / Y
+X mod Y
+
+Numbers:
+X = Y
+X \= Y
+X < Y
+X > Y
+X >= Y
+X =< Y
+
+trace
+notrace
+spy P   NOT IMPLEMENTED
+debugging   NOT IMPLEMENTED
+nodebug   NOT IMPLEMENTED
+nospy   NOT IMPLEMENTED
+
+
+ISO PROLOG built-in predicates:
+------------------------------
+
+save(X)
+unify(X, Y)
+arity(T, A)
+length(L, N)
+nth0(I, L, E)
+nth1(I, L, E)
+append(L1, L2, L3)
+findall(X,G,L)
+collect(S,L)
+pwd
+cd(X)
+cd
+ls
+member(X,L).
+
+
+JavaLog extra predicates:
+------------------------
+
+print(X)
+println(X)
+printList([H|T],S)
+ground(X)
+send(O, M, P, R)
+send(O, M, P)
+assertm(X,Y)
+listing([H|R]) 
+connect(X,Y)
+connect(X)
+registryObjs(X,Y)
+registryObjs(X)
+rcall(Server,Service,Query)
+rcall(Service,Query)
+rsolutions(Server,Service,Query,Result)
+rsolutions(Service,Query,Result)
+publish(X)
+publishm(X)
+present(X)
+enable(X)
+disable(X)
+newInstance(C,N)

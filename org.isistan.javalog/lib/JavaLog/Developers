@@ -1,0 +1,23 @@
+$Id: Developers,v 1.2 2002/03/05 13:16:37 azunino Exp $
+
+In order to modify JavaLog you have to install ANT (http://jakarta.apache.org/ant/index.html).
+Add JavaLog/lib/antlrall.jar to your CLASSPATH. 
+Copy jakarta-ant-1.4.1-optional.jar to ANT_DIR/lib
+
+
+Compiling JavaLog:
+
+# ant
+
+Deleting .class and temporary files:
+
+# ant clean
+
+Building JavaLog API docs:
+
+# ant doc
+
+Preparing a .tgz file with JavaLog sources
+
+# ant srcSnapshot
+

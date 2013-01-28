@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText=""
+    modelDirectory="/org.isistan.flabot.executionstatemapping/src" modelPluginID="org.isistan.flabot.executionstatemapping"
+    modelName="Model" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    usedGenPackages="../../../../../../org.isistan.flabot/src/org/isistan/flabot/flabot.genmodel#//editormodel ../../../../../../org.isistan.flabot/src/org/isistan/flabot/flabot.genmodel#//coremodel ../../../../../../org.isistan.flabot.mapping/src/org/isistan/flabot/mapping/mapping.genmodel#//mappingmodel">
+  <foreignModel>model.ecore</foreignModel>
+  <genPackages prefix="Model" basePackage="org.isistan.flabot.executionstatemapping"
+      disposableProviderFactory="true" ecorePackage="model.ecore#/">
+    <genClasses ecoreClass="model.ecore#//ExecutionStateMappingFileModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ExecutionStateMappingFileModel/stateContainersTree"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ExecutionStateMappingFileModel/methodExecutionConditionsTree"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ExecutionStateMappingFileModel/generalExecutionConditionsTree"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ExecutionStateMappingFileModel/stateDiagramsList"/>
+    </genClasses>
+    <nestedGenPackages prefix="Visual" basePackage="org.isistan.flabot.executionstatemapping.model"
+        disposableProviderFactory="true" ecorePackage="model.ecore#//visual">
+      <genClasses ecoreClass="model.ecore#//visual/StateDiagram">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//visual/StateDiagram/semanticModel"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Semantic" basePackage="org.isistan.flabot.executionstatemapping.model"
+        disposableProviderFactory="true" ecorePackage="model.ecore#//semantic">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//semantic/ConditionValue">
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ConditionValue/EQUAL"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ConditionValue/NOT_EQUAL"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ConditionValue/GREATER"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ConditionValue/GREATER_EQUAL"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ConditionValue/LOWER"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ConditionValue/LOWER_EQUAL"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ConditionValue/IS_NULL"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ConditionValue/NOT_NULL"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ConditionValue/CONTAINS"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ConditionValue/NOT_CONTAINS"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ConditionValue/IS_CLASS"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ConditionValue/NOT_IS_CLASS"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//semantic/TreeType">
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/TreeType/CONTAINER_TYPE"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/TreeType/PROJECT_TYPE"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/TreeType/PACKAGE_ROOT_TYPE"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/TreeType/PACKAGE_TYPE"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/TreeType/CLASS_TYPE"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/TreeType/EXECUTION_CONDITION_TYPE"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/TreeType/STATE_DIAGRAM_TYPE"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/TreeType/FOLDER_STATE_DIAGRAM_TYPE"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/TreeType/FOLDER_GENERAL_EXECUTION_CONDITION_TYPE"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//semantic/StateType">
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/StateType/INITIAL"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/StateType/NORMAL"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/StateType/FINAL"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//semantic/EventType">
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/EventType/AND_EVENT"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/EventType/OR_EVENT"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/EventType/SINGLE_EVENT"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//semantic/ExecutionStateValue">
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ExecutionStateValue/Faulty"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ExecutionStateValue/Executed"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ExecutionStateValue/NotExecuted"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ExecutionStateValue/NONE"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//semantic/ScopeFilterType">
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ScopeFilterType/ARGUMENTS_SCOPE"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ScopeFilterType/FIELDS_SCOPE"/>
+        <genEnumLiterals ecoreEnumLiteral="model.ecore#//semantic/ScopeFilterType/RETURNVALUE_SCOPE"/>
+      </genEnums>
+      <genClasses ecoreClass="model.ecore#//semantic/NamedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/NamedElement/name"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/ExecutionCondition">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/ExecutionCondition/fields"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/ExecutionCondition/parameters"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/ExecutionCondition/returnedValue"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/ExecutionCondition/internalMethodCalls"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/ExecutionCondition/scope"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/ExecutionCondition/exception"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/ExecutionCondition/patternMapping"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/ExecutionCondition/instanceOfClass"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/EvaluationCondition">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/EvaluationCondition/value"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/EvaluationCondition/condition"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/ExceptionEvaluationCondition">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/ExceptionEvaluationCondition/checkAnyException"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/ScopeEvaluationCondition"/>
+      <genClasses ecoreClass="model.ecore#//semantic/FieldEvaluationCondition">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/FieldEvaluationCondition/fieldName"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/ParameterEvaluationCondition">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/ParameterEvaluationCondition/parameterPosition"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/ParameterEvaluationCondition/fieldEvaluationConditions"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/ReturnedValueEvaluationCondition"/>
+      <genClasses ecoreClass="model.ecore#//semantic/StateContainer">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/StateContainer/states"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//semantic/StateContainer/inicialStates"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//semantic/StateContainer/finalStates"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//semantic/StateContainer/preFilters"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/StateContainer/transitionConditions"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/StateContainer/defaultState"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/StateContainer/exceptionState"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/State">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/State/sourceTransitionConditions"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//semantic/State/targetTransitionConditions"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/State/stateType"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/FinalState">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/FinalState/executionState"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/TransitionCondition">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//semantic/TransitionCondition/sourceState"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//semantic/TransitionCondition/targetState"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//semantic/TransitionCondition/executionCondition"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/EStringToTreeStructuredElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/EStringToTreeStructuredElement/key"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//semantic/EStringToTreeStructuredElement/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//semantic/TreeStructuredElement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/TreeStructuredElement/treeStructuredElements"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//semantic/TreeStructuredElement/parent"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/TreeStructuredElement/type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//semantic/TreeStructuredElement/persistentList"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//semantic/MappedTreeStructuredElement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/MappedTreeStructuredElement/treeStructuredElementMap"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//semantic/AbstractExpression">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/AbstractExpression/eventType"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//semantic/AbstractExpression/parentExpression"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/AbstractExpression/isNot"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//semantic/BlockExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/BlockExpression/expressionList"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/AndExpression"/>
+      <genClasses ecoreClass="model.ecore#//semantic/OrExpression"/>
+      <genClasses ecoreClass="model.ecore#//semantic/SingleExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/SingleExpression/executionCondition"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/SimpleExpressionExecutionCondition">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/SimpleExpressionExecutionCondition/executionState"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/SimpleExpressionExecutionCondition/expression"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/NotedElement">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//semantic/NotedElement/notes"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//semantic/VisitedExpression">
+        <genOperations ecoreOperation="model.ecore#//semantic/VisitedExpression/accept">
+          <genParameters ecoreParameter="model.ecore#//semantic/VisitedExpression/accept/visitor"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//semantic/VisitorExpression">
+        <genOperations ecoreOperation="model.ecore#//semantic/VisitorExpression/visit">
+          <genParameters ecoreParameter="model.ecore#//semantic/VisitorExpression/visit/expression"/>
+        </genOperations>
+        <genOperations ecoreOperation="model.ecore#//semantic/VisitorExpression/visit.1">
+          <genParameters ecoreParameter="model.ecore#//semantic/VisitorExpression/visit.1/expression"/>
+        </genOperations>
+        <genOperations ecoreOperation="model.ecore#//semantic/VisitorExpression/visit.2">
+          <genParameters ecoreParameter="model.ecore#//semantic/VisitorExpression/visit.2/expression"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//semantic/SimpleExecutionConditionConfiguration">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//semantic/SimpleExecutionConditionConfiguration/simpleExpressionExecutionConditions"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/SimpleExecutionConditionConfiguration/executionConditionNotVerifiedState"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/SimpleExecutionConditionConfiguration/exceptionState"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//semantic/SimpleExecutionConditionConfiguration/preFilters"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/SimpleExecutionConditionConfiguration/useDefaultConfiguration"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//semantic/SimpleExecutionConditionConfiguration/useCustomConfiguration"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Prolog" basePackage="org.isistan.flabot.executionstatemapping.model"
+        disposableProviderFactory="true" ecorePackage="model.ecore#//prolog">
+      <genClasses image="false" ecoreClass="model.ecore#//prolog/PrologElement">
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//prolog/PrologElement/predicateName"/>
+        <genOperations ecoreOperation="model.ecore#//prolog/PrologElement/setPredicateFunctor">
+          <genParameters ecoreParameter="model.ecore#//prolog/PrologElement/setPredicateFunctor/functor"/>
+          <genParameters ecoreParameter="model.ecore#//prolog/PrologElement/setPredicateFunctor/parameters"/>
+        </genOperations>
+        <genOperations ecoreOperation="model.ecore#//prolog/PrologElement/resetPredicateName"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//prolog/TagProvider">
+        <genOperations ecoreOperation="model.ecore#//prolog/TagProvider/getPreFilterInitialTag"/>
+        <genOperations ecoreOperation="model.ecore#//prolog/TagProvider/getPreFilterCommonTag"/>
+        <genOperations ecoreOperation="model.ecore#//prolog/TagProvider/getExecutionStateCommonTag">
+          <genParameters ecoreParameter="model.ecore#//prolog/TagProvider/getExecutionStateCommonTag/executionState"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//prolog/PrologCodeFactory">
+        <genOperations ecoreOperation="model.ecore#//prolog/PrologCodeFactory/getPrologCode">
+          <genParameters ecoreParameter="model.ecore#//prolog/PrologCodeFactory/getPrologCode/stateContainer"/>
+          <genParameters ecoreParameter="model.ecore#//prolog/PrologCodeFactory/getPrologCode/tagProvider"/>
+        </genOperations>
+        <genOperations ecoreOperation="model.ecore#//prolog/PrologCodeFactory/getPrologCode.1">
+          <genParameters ecoreParameter="model.ecore#//prolog/PrologCodeFactory/getPrologCode.1/simpleExecutionConditionConfiguration"/>
+          <genParameters ecoreParameter="model.ecore#//prolog/PrologCodeFactory/getPrologCode.1/tagProvider"/>
+        </genOperations>
+        <genOperations ecoreOperation="model.ecore#//prolog/PrologCodeFactory/getPrologCode.2">
+          <genParameters ecoreParameter="model.ecore#//prolog/PrologCodeFactory/getPrologCode.2/@eParameters.0"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//prolog/VisitedExpressionProlog">
+        <genOperations ecoreOperation="model.ecore#//prolog/VisitedExpressionProlog/accept">
+          <genParameters ecoreParameter="model.ecore#//prolog/VisitedExpressionProlog/accept/visitor"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//prolog/VisitorExpressionProlog">
+        <genOperations ecoreOperation="model.ecore#//prolog/VisitorExpressionProlog/visit">
+          <genParameters ecoreParameter="model.ecore#//prolog/VisitorExpressionProlog/visit/expression"/>
+        </genOperations>
+        <genOperations ecoreOperation="model.ecore#//prolog/VisitorExpressionProlog/visit.1">
+          <genParameters ecoreParameter="model.ecore#//prolog/VisitorExpressionProlog/visit.1/expression"/>
+        </genOperations>
+        <genOperations ecoreOperation="model.ecore#//prolog/VisitorExpressionProlog/visit.2">
+          <genParameters ecoreParameter="model.ecore#//prolog/VisitorExpressionProlog/visit.2/expression"/>
+        </genOperations>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

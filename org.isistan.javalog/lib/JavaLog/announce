@@ -1,0 +1,24 @@
+$Id: announce,v 1.2 2002/02/22 17:35:22 azunino Exp $
+
+Announcing JavaLog-1.0 Beta4 
+
+We are pleased to announce the release of version 1.0 Beta 4 of JavaLog.
+
+JavaLog is a Prolog interpreter written in Java(tm) designed to allow easy
+integration between Java and Prolog. JavaLog was developed by The Objects and
+Visualization Group (http://www.exa.unicen.edu.ar/~mcampo/gov/) and is currently
+used in several research projects related to artificial intelligence supported 
+by Object Oriented concepts for Software Development. 
+
+JavaLog has the following features:
+
+   -It enables the creation and usage of Java objects in Prolog programs, mixing
+    Logic/OO paradigms. 
+   -It preprocess Java methods with embedded Prolog.
+   -It supports the manage of common knowledge of several instances of our
+    Prolog interpreter by means of a blackboard architecture. 
+   -It allow the physical distribution of Prolog interpreters using Java RMI and
+    logic module mobility. 
+
+For more information about JavaLog, see the JavaLog WWW page at
+http://www.exa.unicen.edu.ar/~azunino/

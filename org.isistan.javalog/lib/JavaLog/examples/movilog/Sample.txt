@@ -1,0 +1,11 @@
+% Config. Máquina A
+inc(0).
+inc(X):-inc(Y), X is Y+1.
+
+% Config. Máquina B
+fact(0,1).
+fact(X,Y):-X>0, N is X-1, fact(N,Z), Y is X*Z.
+
+% Este predicado puede estar en cualquiera de las dos máquinas
+% Devuelve en X el número cuyo factorial es mayor que Y (parámetro)
+factGreater(X,Y):-inc(X), fact(X,Z), Z>Y.

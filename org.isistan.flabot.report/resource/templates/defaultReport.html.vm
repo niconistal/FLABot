@@ -1,0 +1,107 @@
+
+#macro (printRole $role)
+	$role.name: $role.component.name ($role.abstractInfo)
+#end
+
+#macro (printCondition $condition)
+	$condition.name (Type: $condition.type)
+#end
+
+<html>
+<head>
+<title>FLABot alvaro</title>
+</head>
+
+
+<body>
+	<h1>Mapping to code</h1>
+	
+	<table border=1>
+	#foreach ($component in $flabotFileModel.coreModel.components)
+		<tr>
+			<td><a name="$component.name">$component.name</a></td>
+			<td><a name="Scope">
+				#set ($classes = false)
+				#set ($classes = $mappingUtil.getMappedClasses($component))
+				#if ($arrayLengthUtil.getLength($classes) > 0)
+					#foreach ($class in $classes)
+						class $class.descriptor
+					#end
+				#end
+			</a>
+			</td>
+			<td>
+
+				#foreach ($responsibility in $component.features)
+				<table border=1>
+				<tr>
+		
+					<td><a href="#responsibility.$responsibility.name">$responsibility.name</a></td>
+						#set ($behaviors = false)
+						#set ($behaviors = $mappingUtil.getMappedBehaviors($responsibility))
+						<td>
+						<a name="$component.name">
+							#if ($arrayLengthUtil.getLength($behaviors) > 0)
+								#foreach ($behavior in $behaviors)
+										$behavior.descriptor
+								#end
+							#end
+						</a>
+						</td>
+				</tr>
+				</table>
+				#end
+			</td>
+		</tr>
+	#end
+	</table>
+	
+	<h1>Familias</h1>
+	
+	<table border=1>
+
+	#foreach ($family in $flabotFileModel.coreModel.families)
+		#set ($familyCount = $velocityCount)
+		<tr>
+
+			<td><a name="family.$family.name"></a>1.$familyCount. $family.name</td>
+			<td>
+					#foreach ($familyElement in $family.familyElement)
+					<table border=1>
+						#if ($familyElement.architecturalComponent != $familyElement.functionalComponent)
+						<tr>
+							<td><a href="#component.$familyElement.architecturalComponent.component.name">#printRole($familyElement.architecturalComponent)</a></td>
+							<td><a href="#component.$familyElement.functionalComponent.component.name">#printRole($familyElement.functionalComponent)</a></td>
+						</tr>
+						#end
+					</table>
+					#end
+			</td>
+			<td>
+						#foreach ($eventMapEntry in $family.events.map().entrySet())
+						<table border=1>
+							#if ($eventMapEntry.key != $eventMapEntry.value)
+							<tr>
+								<td>
+									<a href="Eventos">	
+										$eventMapEntry.key.name
+									</a>
+								</td>
+								<td>
+									<a href="Eventos">	
+										$eventMapEntry.value.name
+									</a>
+									
+								</td>
+							</tr>
+							#end
+						</table>
+						#end
+						
+			</td>
+		</tr>
+		#end
+	</table>
+			
+</body>
+</html>

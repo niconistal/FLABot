@@ -1,0 +1,54 @@
+// -*- java -*-
+import JavaLog.*;
+import java.io.*;
+import java.lang.*;
+//Construct the application
+public class CommerceAgent {
+    
+    private Brain brain;
+    private KnowledgeLogic userPreferences;
+    
+    public CommerceAgent() {
+	brain = new Brain();
+	System.out.println ("Creo Brain");
+	initKnowledge();
+    }
+
+    void userPreferences( KnowledgeLogic userPreferences ) {
+	this.userPreferences = userPreferences;
+    }
+
+    public Brain brain(){ return this.brain; }
+
+    public void initialize() {
+	userPreferences( {{preference(car,[ford, Model, Price]):-
+	      Model > 1998,
+	      Price < 60000.
+	      preference(motorcycle,[yamaha, Model, Price]):-
+	      Model >= 1999,
+	      Price < 9000.}} );
+    }
+
+    public static void main(String[] args) {
+	CommerceAgent anAgent = new CommerceAgent( );
+	
+    }
+}
+						       
+						       
+
+}
+/*
+  public boolean buyArticle(
+  Article anArticle )
+  
+  userPreferences.enable();
+  type = anArticle.type;
+  if (?-preferences(
+  #anArticle#, [#type#, #brand#,
+  #model#, #price#]).)
+  buy(anArticle);
+  userPreferences.disable();
+  } */
+
+//Main method

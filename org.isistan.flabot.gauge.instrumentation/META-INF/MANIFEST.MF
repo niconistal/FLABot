@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FLABot Instrumented Gauge Plug-in
+Bundle-SymbolicName: org.isistan.flabot.gauge.instrumentation
+Bundle-Version: 0.1.1
+Bundle-ClassPath: lib/gauge.instrumentation.jar
+Bundle-Vendor: www.exa.unicen.edu.ar/isistan/
+Bundle-Localization: plugin
+Export-Package: org.isistan.flabot.gauge.instrumentation
+Require-Bundle: org.isistan.flabot.javassist,
+ org.isistan.flabot.gauge,
+ org.isistan.flabot.instrumentation,
+ org.isistan.flabot.javamodel,
+ org.isistan.flabot.javamodel.java,
+ org.isistan.flabot.util,
+ org.isistan.flabot.javamodel.javassist

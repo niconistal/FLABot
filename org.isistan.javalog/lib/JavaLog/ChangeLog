@@ -1,0 +1,501 @@
+$Id: ChangeLog,v 1.18 2002/06/11 16:36:48 azunino Exp $
+
+2002-9-20 Alejandro Zunino <azunino@exa.unicen.edu.ar>
+	* build.xml
+	Added some excludes
+
+2002-9-13 Bruno Fortana <bfontana@exa.unicen.edu.ar>
+	* JavaLog/mobility/MovilogParser.java
+	Cambio en el casting en el metodo parseKnowledge. 
+	Agregaba LogicModules como PlClauses.
+
+	* JavaLog/mobility/FetchProtocol.java:
+	Se cambio PROTOCOL_FUNCTOR por FETCH_FUNCTOR en el metodo isFetch. 
+	No hacia matching nunca con los fetch del brainlet.
+
+	* JavaLog/mobility/ProtocolNameServer.java:
+	Se agrego comprobacion para null en fetchClauses. Daba excepcion si no
+	se encontraban clausulas.
+
+	* JavaLog/mobility/MarletMessenger.java:
+	Se agrego el la definicion del servicio (faltaba). 
+	El servicio getFetchedClauses entonces no funcionaba.
+
+	* JavaLog/mobility/Brainlet.java:
+	Se reemplazo fetchedClauses por pns.getProtocolRegistry().
+	fetchedClauses es null porque no se genera estado del brainlet (no se movio).
+
+2002-6-20 Alejandro Zunino <azunino@exa.unicen.edu.ar>
+	* classes/JavaLog/init/DataBase.pl
+		- consultLogicModule and insertIntoLogicModule
+	* classes/JavaLog/init/Persistent.pl
+		- defines some predicates for managing persistent logic modules
+	* JavaLog/{GenericLogicModule,GenericLogicModuleIterator}
+		- 
+		
+		
+2002-6-11 Alejandro Zunino <azunino@exa.unicen.edu.ar>
+	* JavaLog/LogicModule, JavaLog/PlStackElement
+		- fixed some minor problems that affected serialization (used by MoviLog)
+
+2002-6-5 Alejandro Zunino <azunino@exa.unicen.edu.ar>
+    * JavaLog/mobility/WrapperDatabase.java, JavaLog/LogicModuleIterator
+        - both find(h,a) and find(pls) are wrapped now
+	    
+2002-6-4 Alejandro Zunino <azunino@exa.unicen.edu.ar>
+	* JavaLog/PlParser
+		- module()
+			module ::= BRCLEFT {(group,rwrw)? clause+} BRCRIGHT  changed to
+			module ::= BRCLEFT {(group,rwrw)? clause*} BRCRIGHT
+
+2002-5-23 Alejandro Zunino <azunino@exa.unicen.edu.ar>
+    * classes/setup removed
+
+2002-5-23 Alejandro Zunino <azunino@exa.unicen.edu.ar>
+    * JavaLog/mobilityOld removed
+
+2002-5-23 Diego Ferraggine <dferraggine@hotmail.com>
+          Romina Stella <romistella@infovia.com.ar>
+    * ISO Input/Output predicates:
+      	    - JavaLog/extension/IO/*
+	    - classes/JavaLog/init/InputOutput.pl
+	    - JavaLog/PlList.java
+    
+2002-5-22 Diego Ferraggine <dferraggine@hotmail.com>
+          Romina Stella <romistella@infovia.com.ar>
+    * JavaLog/{PlObject, PlVar, PlStructArgs, PlJavaObj, PlInt, PlAtom, PlReal}
+	    - method accept(CompareVisitor v, PlObject plo)
+    * new files: JavaLog/visitor/{LessOrEqualThanVisitor, CompareVisitor, CompareVisitor, 
+		IdenticalVisitor, NotIdenticalVisitor, GreaterVisitor, GreaterOrEqualVisitor,
+        LessThanVisitor}
+    * new files: 
+	    - JavaLog/extension/TermComp.java
+            - classes/JavaLog/init/TermComp.pl
+
+	
+2002-5-10 Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* JavaLog/PlEngine.java
+	  	- added a class variable: PlEngine.Release
+	* *tmpl
+	    - minor fixes
+
+2002-5-3  Matias Truchi   <mtruchi@exa.unicen.edu.ar>
+	  Cristian Garcia <crgarcia@exa.unicen.edu.ar>
+	* Makefile: JavaLog/exception package added.
+	* JavaLog/PlRuntimeException.java replaced by 
+	   JavaLog/exception/PlRuntimeException.java
+	
+	* New files:
+		- JavaLog/exception/CalculationError.java
+		- JavaLog/exception/DomainError.java
+		- JavaLog/exception/SyntaxError.java
+		- JavaLog/exception/TypeError.java
+		- JavaLog/extension/PrologException.java
+		- classes/JavaLog/init/PrologException.pl
+		- two new builtins: catch and throw
+		  (see comments in exception'sdocs/Informe.pdf) 
+
+	* JavaLog/extension/Arithmetic.java: 
+		- method is():  It now supports type_error exception.
+	* JavaLog/JMain.java: Some minor changes made to showResults
+	  ('\n' added)
+	* JavaLog/Main.java: Some minor changes made to showResults 
+	  ('\n' added)
+	* JavaLog/PlBuiltIn.java: method builtIn invoke PrologException 
+	  call method if an exception has occurred.
+	* JavaLog/PlMath.java:
+		- methods eval, sqrt, log, div, idiv support 
+		  exception handling (ISO Prolog)
+	* JavaLog/PlStackElement.java: method setTerm(int i) added
+	
+2002-3-13 Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* build.xml
+		- target srcdist builds a source distribution using the CVS TAG
+	* added examples/
+		- ISO Prolog and MoviLog examples
+
+2002-3-10 Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* classes/JavaLog/init/DiffLists.pl
+		- add_to_back fixed
+	* JavaLog/PlList.toStruct
+		- listToTerm (TermPredicates.listToSTruct) produced an exception with
+		  A1=3,F=f,length(R, A1),!,listToTerm( [F|R], T ).
+	* examples/
+		- most examples work perfectly
+				
+2002-3-5 Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* JavaLog/Loader.java, JavaLog/classpath/ClassPath.java
+		- added \Users\Cristian.... to the system CLASSPATH...
+		  now it adds System.getProperty("tomcat.home")+
+		  	"/webapps/movilog/WEB-INF/classes"
+
+2002-3-3 Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* JavaLog/extension/Arithmetic.java, classes/JavaLog/init/Arithmetic.pl
+		- =:= and =\=
+
+2002-3-3 Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* JavaLog/PlOpTable.java
+		- changed operators precedence to conform ISO Prolog
+	* atomic(X)
+		- if X is an unbounded variable atomic returns false
+	* build.xml
+		- it is less dependant on CLASSPATH
+	* *.tmpl setup/setup.properties
+		- setup made simpler
+	* lib/
+		This directory contains some redistributable libraries 
+		required by JavaLog 
+		
+
+2002-3-2 Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* JavaLog/extension/TermPredicates.java,
+		 classes/JavaLog/init/TermPredicates.pl
+		 - univ fixed
+		 - functor reimplemented. It is faster now.
+		 - functor had some problems: 
+				functor(foo(a),fo,1)
+				functor(X,1.1,0).
+		 - arg checks bounds
+	* JavaLog/extension/TermTypes.java
+		- compound([]) fails
+	* build.xml
+		- makes dos/api-docs if neccesary
+	* classes/JavaLog/init/ListOperations.pl
+		- length(L,1.1) now works
+
+
+----
+
+2002-2-28 Bruno Fontana  <bfontana@exa.unicen.edu.ar>, 
+		Pablo Gonzalez <pgonza@exa.unicen.edu.ar>
+	* JavaLog/debugger/, classes/JavaLog/init/Miscelaneous.pl, 
+	  JavaLog/PlEngine.java, JavaLog/extension/Miscelaneous.java
+	  	- JavaLog debugger updated. It now supports multithreaded 
+		  Prolog programs 
+
+2002-2-27 Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* JavaLog/PlAtom.java, JavaLog/PlStructArgs	
+		- toString strips quotes when an identifier contains '_'
+	* JavaLog/extension/InputOutput.java
+	* classes/JavaLog/init/DataBase.pl
+		- added dynamic(PredSpec) for compability with ISO Prolog
+	* classes/JavaLog/init/Miscelaneous.pl, JavaLog/extension/Miscelaneous.java
+		- prolog(X): X is the current Prolog VM (a PlEngine object)
+	* build.xml
+		- package setup is compiled to setup/ instead of classes/
+
+2002-2-26 Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* classes/JavaLog/init/DataBase.pl
+		- abolish :- retractall
+	* added classes/JavaLog/init/TermComp.pl
+		- ISO Prolog term comparison predicates (skel)
+	* classes/JavaLog/init/TermType.pl
+		- float, compound
+	* classes/JavaLog/init/ControlPredicates.pl
+		- If->Then
+	* classes/JavaLog/init/CompoundGoals.pl merged with ControlPredicates.pl 
+	* JavaLog/Scanner.g
+		- "...." caused NullPointerException. 
+	
+2002-2-19 Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* rel-2-0-0
+	* JavaLog sources are stored on the CVS repository at matrix!
+	
+2002-1-4  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* JavaLog/PlParser.createPlLogicModule
+		- this method parses several parameters of logicModule(...) and creates
+		  an instance of LogicModule or one of its subclasses. This method is
+		  created by PlParser.mkPlStructArgs. See the syntax for creating logic
+		  modules in JavaLog/test.pl
+    * JavaLog/PlParser.mkPlStructArgs
+		- now this is an instance method (it was static)
+	* JavaLog/PlEngine
+		- changed the references to the (previously static)
+		  method PlParser.mkPlStructArgs
+	* JavaLog/PlLogicModule.name
+		- head().arg( 0 ) may be a structure. As a consequence the cast to
+		  PlAtom is no longer correct.
+
+2002-1-2  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* JavaLog/PlList.java
+		- fixed a bug in toStruct which had caused problems with 
+		  goto(0)=..[X|Y], append([X|Y],[old],Res), Pred=..Res.
+
+2001-12-31  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+	* JavaLog/PlList.java
+		- fixed some bugs on length()
+
+	* JavaLog/{DataBase,LogicModule,PlLocalLogicModule,PlLogicModule,
+	  PlRemoteLogicModule,PrologDatabase,PrologRemoteDatabase,RemoteLogicModule}
+	  	- two new builtins: asserta and assertz
+		
+	* JavaLog/KnowledgeLogic.java renamed JavaLog/LogicKnowledge.java
+
+	* JavaLog/PlStackElement.java
+		- fixed a bug due to the usage of a VectorEnumerator object 
+		  (see my comments in the source code)
+	
+	* JavaLog/aip
+		- this package implements a very fast indexing mechanism for clauses
+
+	* JavaLog/IndexedLogicModule.java
+		- this logic module uses the indexing mechanism defined in JavaLog.aip
+
+	* JavaLog/*LogicModule*
+		- added find(PlStruct)
+
+	* JavaLog/PlEngine.java
+		- adapted to use IndexedLogicModule
+
+	* JavaLog/extension/Database.java classes/JavaLog/init/Database.pl
+		- two new builtins: createLogicModule and createIndexedLogicModule
+		  
+
+2001-12-18  Juan Iturralde - Carlos Rodriguez  <{jiturral, carodri}@exa.unicen.edu.ar>
+
+	* JavaLog/UnionFind2.java replaced by JavaLog/UnionFindJLog.java
+	
+	* New files:
+		- JavaLog\UnionFind.java (interface implemented by UnionFindJLog) 
+		- JavaLog\NUnionFind.java 
+		- JavaLog\UFObject.java
+		- JavaLog\UnionObject.java
+		- JavaLog\FindObject.java
+		- JavaLog\CompressionObject.java
+
+	* JavaLog/PlStackElement.java: 
+		- variable private int[] changes replaced by private int changes
+		- the method pop have been rewritten
+
+	* JavaLog/PlEngine.java: 
+		- variable private int[] changes replaced by private int changes
+		- the method pop have been rewritten
+		- in doCut():
+                # pse.pop(current) replaced by current.undoChanges(pse.pop(current))
+                # dad.pop(current) replaced by current.undoChanges(dad.pop(current))
+
+1999-10-16  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/Preprocessor.java: small bugs fixes
+
+1999-08-01  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/reflection/Invocator.java: failed when a class does not
+	contain any method (the invoked method is declared into the
+	superclass).
+	
+1999-07-25  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/Preprocessor.java: // BRAIN : <brainName> can be
+	included into a JavaLog program to use a non-standard brain
+	(i.e. brain()).
+
+1999-07-15  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/Preprocessor.java: ?-assert(#o.m()#). does not work.
+
+1999-07-14  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/extension/Reflection.java: newInstance method
+
+1999-07-11  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/Preprocessor.java: #...# can include spaces
+
+	* JavaLog/examples/SimpleEmbed.javalog: {%PROLOG CLAUSE%}. It
+	returns an instance of PlObject.
+
+	* JavaLog/Preprocessor.java: classes containing embedded Prolog
+	*must* define a method called brain. This method should return an
+	instance of Brain (see JavaLog/examples/SimpleEmbed.javalog).
+	
+1999-07-10  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/PlParser.java: does not wrap instances of Number nor String.
+
+	* JavaLog/PlReal.java: constructor PlReal(Number)
+
+	* JavaLog/PlInt.java: constructor PlInt(Number)
+
+1999-06-11  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* setup/*.java: updated for swing-1.1
+
+	* JavaLog/JMain.java: updated for swing-1.1
+
+1999-05-25  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/PlList.java: toStruct does not work when the list
+	is result of a predicate like length or member.
+
+	* JavaLog/PlStructArgs.java: state fails: length(L,3), P=..[p|L].
+
+1999-04-24  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/Preprocessor.java: instance variables with static and
+	final modifiers, and/or with initializers cause confusion to the
+	Preprosessor.
+
+1999-04-16  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/PlBuiltIn.java: getDeclaredMethods() replaced by getMethods()
+
+	* JavaLog/PlMath.java: getDeclaredMethods() replaced by getMethods()
+
+1999-04-14  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/Preprocessor.java: now, '\r's are removed from input
+
+	* JavaLog.bat.tmpl: -p does not well work under Windows
+
+1999-04-10  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/PlEngine.java: .pl files are consulted from
+	JavaLog/init using sun.tools.java.ClassPath
+
+	* JavaLog/Loader.java: this is used to load extension classes (see
+	PlBuiltIn)
+
+	* JavaLog/PlBuiltIn.java: Instances of this class class contains
+	all the extensions (JavaLog/extension). PlBuiltClause is used to
+	'adapt' a PlBuiltIn object (to behave like any traditional Prolog
+	clause)
+
+	* Built-in.pl: this big file has been splitted into 13 smaller files
+
+	* JavaLog/PlMath.java: this is like java.lang.Math
+
+	* JavaLog/PlNumber.java: This is like java.lang.Number
+
+	* JavaLog/PlReal.java: now JavaLog support operations on floting
+	point numbers
+
+	* JavaLog/JMain.java: new SWING-based interface
+
+	* Makefile (PACKAGES): added JavaLog.extension package
+
+	* JavaLog/PlBuiltIn.java: this class has been splitted (see
+	JavaLog/extension)
+
+
+1999-04-05  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/PlTypeCompatibility.java: Java/JavaLog type
+	compatibility bug.
+
+	* JavaLog/Preprocessor.java: sometimes, a java object embedded into
+	Prolog is not parsed.
+
+1999-03-30  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/LogicModule.java: constructors have public access now.
+	consult( Reader, PlParser )
+
+1999-03-29  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/Preprocessor.java: javaregex replaced by gnu.regexp
+	(because javaregex is not free software).
+
+1999-03-26  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/visitor/FreezerVisitor.java: visitPlUVar contains a bug
+	which cause stack overflow.
+	
+1999-03-17  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/Main.java: prolog() returns the instance of PlEngine
+	managed by the GUI.
+
+1999-03-13  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* setup/: new setup program.
+	
+	* classes/JavaLog/init/Built-in.pl: current_op now works.
+
+	* JavaLog/PlOp.java: typeText() gets the type of operator as
+	String.
+	
+	* JavaLog/PlEngine.java: constructor asserts 'this'. If you write
+	"?-prolog(X)", X is bound to an instance of PlEngine. X can be
+	used to do many useful things (see current_op in Built-in.pl)
+
+	* JavaLog/PlBuiltIn.java: send should not return true when the
+	invoked method return false (Fixed)
+
+1999-03-12  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/PlStructArgs.java: constructors cleaned.
+
+	* JavaLog/PlUVar.java: unify(PlObject) cleaned (now is 2x faster).
+
+	* JavaLog/PlStruct.java: bug fixed in equal(PlObject).
+
+1999-03-10  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/Brain.java: addCapability(Object,KnowledgeLogic) has
+	public access now.
+
+1999-03-09  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/PlEngine.java: call(String,Object[]) generates
+	ClassCastException due to an innecesary cast to PlClause.
+
+1999-03-06  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* Makefile: Added rules for PRCS (Project Revision Control
+	System). javadoc -version.
+
+1999-03-05  Alejandro Zunino  <azunino@exa.unicen.edu.ar>
+
+	* JavaLog/PlEngine.java: Built-in.pl is searched into the
+	CLASSPATH using the ClassLoader !!!!
+
+	* JavaLog/PlBuiltIn.java: consult has been divided into two
+	methods: consult( PlObject ) and consult( InputStream ).
+
+	* Built-in.pl: moved from JavaLog/JavaLog to classes/JavaLog/init
+
+	* doc++2javadoc.pl: this Perl script was used to convert comments
+	from doc++ format (LaTeX) to javadoc format.
+	
+	* JavaLog/PlRemoteLogicModule.java: this class wrapps a
+	LogicModule adding remote capabilities to it.
+
+	* JavaLog/PrologRemoteDatabase.java: this is like PrologDatabase +
+	RMI.
+
+	* JavaLog/PlLogicModule.java: this class has been made
+	abstract. Two new classes (PlLocalLogicModule and
+	PlRemoteLogicModule) have been created. These two classes provide
+	the same services than the old PlLogicModule.
+
+	* JavaLog/PrologDatabase.java: This interface is implemented by
+	LogicModule. This is like PlRemoteDB in previous releases, but
+	this does not include RMI support.
+
+	* JavaLog/LogicModule.java: RMI stuff cleaned (no more throws!!!).
+
+	* JavaLog/UnionFind2.java: some operations have been optimized.
+
+	* JavaLog/PlObject.java: dereference(), freeze() and toList() have
+	been rewritten. Now these operations are implemented by means of
+	the Visitor design pattern (see the new JavaLog.visitor
+	package). PlObject and its subclasses contain a new method accept,
+	which is used by the Visitor class for traversing Prolog
+	structures. Methods dereference, freeze and toList have been
+	removed from PlObject subclasses.
+
+	* JavaLog/Preprocessor.java: Some minor changes made to support
+	Brain. Now it is not necessary to use PlEngine.
+	
+	* JavaLog/Brain.java: This class provides a better integration
+	between Java and Prolog (see
+	JavaLog/examples/SimpleEmbed.javalog).
+	
+	* Javalog/KnowledgeLogic.java: this class extends LogicModule to
+	include queries. It stores queries results and variables.
+
+1999-03-04  Steffen Moeller  <moeller@ebi.ac.uk>
+
+	* Makefile: jar target did not work. Fixed.
+

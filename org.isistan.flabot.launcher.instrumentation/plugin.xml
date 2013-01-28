@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         id="org.isistan.flabot.launcher.instrumentation.instrumentationCollectionLauncher"
+         name="Flabot Launcher Instrumentation Collection Launcher"
+         point="org.isistan.flabot.launcher.collectionLauncher">
+      <launcher
+            class="org.isistan.flabot.launcher.instrumentation.eclipse.EclipseWorkbenchCollectionLauncher"
+            id="org.isistan.flabot.launcher.instrumentation.eclipseCollectionLauncher"
+            name="Flabot Instrumentation for Eclipse Workbench"
+            />
+      <launcher
+            class="org.isistan.flabot.launcher.instrumentation.localjava.LocalJavaApplicationCollectionLauncher"
+            id="org.isistan.flabot.launcher.instrumentation.localjavaCollectionLauncher"
+            name="Flabot Instrumentation for Local Java Applications"/>
+   </extension>
+
+</plugin>

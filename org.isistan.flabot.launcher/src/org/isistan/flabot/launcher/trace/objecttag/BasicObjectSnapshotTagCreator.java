@@ -1,0 +1,9 @@
+/** * $Id: BasicObjectSnapshotTagCreator.java,v 1.8 2006/04/06 03:32:22 mblech Exp $ * $Author: mblech $ */package org.isistan.flabot.launcher.trace.objecttag;
+
+import java.lang.reflect.Modifier;import org.isistan.flabot.javamodel.JArray;import org.isistan.flabot.javamodel.JClass;import org.isistan.flabot.javamodel.JField;import org.isistan.flabot.javamodel.JObject;import org.isistan.flabot.launcher.trace.MetadataHandler;import org.isistan.flabot.launcher.trace.TagUtil;import org.isistan.flabot.trace.log.Tag;import org.isistan.flabot.trace.log.tagquery.TagQueryUtil.SnapshotConstants;public class BasicObjectSnapshotTagCreator implements ObjectSnapshotTagCreator {
+	public Tag create(JObject jObject, MetadataHandler metadata) {
+		Tag snapShot=TagUtil.createTag();		snapShot.setProperty(SnapshotConstants.NULL_PARAMETER, Boolean.toString(jObject==null));		if(jObject==null) {			return snapShot;		}				String objectToString=BasicObjectTagCreator.toString(jObject);
+		snapShot.setProperty(SnapshotConstants.STRING_PARAMETER, objectToString);		addFieldValues(snapShot, jObject, metadata);
+		
+		return snapShot;
+	}		private void addFieldValues(Tag snapShot, JObject jObject, MetadataHandler metadata) {		Tag fieldsTag=TagUtil.createChildTag(snapShot, SnapshotConstants.FIELDS_TAG, true);				JClass jClass=jObject.getObjectClass();				while(jClass!=null) {			JArray<? extends JField> jFields=jClass.getDeclaredFields();			for (JField jField : jFields) {				if(!Modifier.isFinal(jField.getModifiers())) {					jField.setAccessible(true);					JObject value=jField.get(jObject);					String valueString;					if(value==null) {						valueString="null";					} else {						valueString=BasicObjectTagCreator.toString(value);					}					String descriptor=jField.getDescriptor();					fieldsTag.setProperty(descriptor, valueString);				}			}			jClass=jClass.getSuperclass();		}	}}

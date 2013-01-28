@@ -1,0 +1,60 @@
+/* -*-jde-*- */
+import JavaLog.*;
+
+class Person 
+extends Object {
+  private String nombre;
+  private short edad;
+  private boolean masc;
+  public static PlEngine prolog;
+
+  Person() {
+    this.nombre = null;
+    this.edad = 0;
+    this.masc = true;
+  }
+
+  Person( String nombre, int edad, boolean masc ) {
+    this.nombre = nombre;
+    this.edad = (short)edad;
+    this.masc = masc;
+  }
+
+  public String nombre() {
+    return this.nombre;
+  }
+
+  public short edad() {
+    return this.edad;
+  }
+
+  public boolean masc() {
+    return this.masc;
+  }
+  
+  public Person padre()
+    throws PlException {
+    boolean prologResult = false;
+    ?- padre( #this#, X ).
+    //    if( prologResult )
+    //      return (Person)((PlJavaObj)prolog.goal().stateOf( "X" ).contents());
+    //).reference();
+    //    else
+    return null;
+  }
+
+  public String toString() {
+    return "aPerson("+nombre()+", "+edad()+(masc()?", m)":", f)");
+  }
+
+  public boolean equals( Object o ) {
+    if( o instanceof Person )
+      return equals( (Person)o );
+    return nombre().equals( o.toString() );
+  }
+
+  public boolean equals( Person aPerson ) {
+    return aPerson.nombre().equals( nombre() );
+  }
+}
+

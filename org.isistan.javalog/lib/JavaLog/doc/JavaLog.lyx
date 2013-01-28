@@ -1,0 +1,2139 @@
+#This file was created by <azunino> Tue Apr  6 13:34:59 1999
+#LyX 1.0 (C) 1995-1999 Matthias Ettrich and the LyX Team
+\lyxformat 2.15
+\textclass book
+\begin_preamble
+\usepackage[color]{showkeys}
+\usepackage[Bjarne]{fncychap}
+%\usepackage{avant}
+%\usepackage{bookman}
+%\usepackage{chancery}
+%\usepackage{mathptm}
+\end_preamble
+\language default
+\inputencoding default
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize a4paper
+\paperpackage a4
+\use_geometry 1
+\use_amsmath 0
+\paperorientation portrait
+\leftmargin 25mm
+\topmargin 25mm
+\rightmargin 25mm
+\bottommargin 25mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle headings
+
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+frontmatter
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+thispagestyle{empty}
+\latex default 
+ 
+\layout Standard
+\added_space_bottom medskip \align center 
+
+\size larger 
+Universidad Nacional del Centro de la Provincia de Buenos Aires
+\layout Standard
+\align center 
+Departamento de Computación y Sistemas de la Facultad de Ciencias Exactas
+\layout Standard
+\align center 
+Grupo de Objetos Visualización, ISISTAN
+\layout Standard
+\align center 
+Campus Universitario
+\layout Standard
+\align center 
+Paraje Arroyo Seco - Tandil - 7000
+\layout Standard
+\align center 
+Buenos Aires - Argentina
+\layout Standard
+\added_space_top vfill \align center 
+
+\begin_inset Figure size 357 116
+file logo.ps
+flags 11
+
+\end_inset 
+
+
+\layout Standard
+\align center 
+
+\series bold 
+\size largest 
+Reference Manual
+\layout Standard
+\added_space_top medskip \align center 
+Updated for version 0.82beta1, October 1998
+\layout Standard
+\added_space_top vfill 
+
+\protected_separator 
+
+\layout Standard
+\pagebreak_top \pagebreak_bottom 
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset LatexCommand \listoffigures{}
+
+\end_inset 
+
+
+\latex latex 
+
+\backslash 
+addcontentsline{toc}{chapter}{List of Figures}
+\layout Standard
+\pagebreak_top 
+
+\begin_inset LatexCommand \listoftables{}
+
+\end_inset 
+
+
+\latex latex 
+
+\backslash 
+addcontentsline{toc}{chapter}{List of Tables}
+\layout Standard
+\pagebreak_top 
+
+\latex latex 
+
+\backslash 
+mainmatter
+\layout Chapter
+
+Introduction
+\layout Section
+
+JavaLog
+\layout Standard
+
+This manual describes a Prolog interpreter called JavaLog developed by the
+ Objects and Visualization Group as part of Brainstorm Project.
+\layout Standard
+
+JavaLog has been designed to support Object-Agent programming concepts [........]
+ which can be used for experiments with logic programming and object-oriented
+ programming.
+ The intention was to build a Prolog interpreter strainghtforward enough
+ to be modified for experiments with formalisms used to represent agents
+ mental states [......].
+\layout Standard
+
+This manual does not describe the full sintax and semantics of JavaLog,
+ nor how one should write a program in Prolog.
+ These subjects have been described extensively in [.................].
+ Most built in predicates are compatible with those described in [Clocksin]
+ 
+\layout Section
+
+Notational Conventions
+\layout Subsection
+
+Mode Spec
+\layout Standard
+
+When introducing a built-in predicate, we shall present its usage with a
+ mode spec which has the form 
+\family typewriter 
+name(arg, ..., arg)
+\family default 
+ where each 
+\family typewriter 
+arg
+\family default 
+ denotes how that argument should be instantiated in goals, and has one
+ of the following forms: 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\family typewriter 
+:ArgName
+\family default 
+ This argument should be instantiated to a term denoting a goal or a clause
+ or a predicate name, or which otherwise needs special handling of module
+ prefixes.
+ 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\family typewriter 
++ArgName
+\family default 
+ This argument should be instantiated to a non-variable term.
+ 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\family typewriter 
+-ArgName
+\family default 
+ This argument should be uninstantiated.
+ 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\family typewriter 
+?ArgName
+\family default 
+ This argument may or may not be instantiated.
+ 
+\layout Standard
+
+Mode specs are not only used in the manual, but are part of the syntax of
+ the language as well.
+ When used in the source code, however, the 
+\family typewriter 
+ArgName
+\family default 
+ part must be omitted.
+ That is, 
+\family typewriter 
+arg
+\family default 
+ must be either :, 
+\family typewriter 
++
+\family default 
+, 
+\family typewriter 
+-
+\family default 
+, or
+\protected_separator 
+
+\family typewriter 
+?
+\family default 
+.
+ 
+\layout Subsection
+
+Predicate Spec
+\layout Standard
+
+In the context of certain compiler declarations, we shall need the following
+ notation: Predicates in Prolog are distinguished by their name and their
+ arity.
+ The notation 
+\family typewriter 
+\emph on 
+name/arity
+\family default 
+\emph toggle 
+ is therefore used when it is necessary to refer to a predicate unambiguously;
+ e.g.
+ 
+\family typewriter 
+\emph on 
+append/3
+\family default 
+\emph toggle 
+ specifies the predicate which is named "append" and which takes 3
+\protected_separator 
+arguments.
+ In general, a predicate spec takes the form 
+\family typewriter 
+\emph on 
+name/arity
+\family default 
+\emph toggle 
+.
+ With the introduction of the module system, this spec is only defined relative
+ to the "current" module.
+ A absolute predicate spec must include a module prefix: 
+\family typewriter 
+\emph on 
+module:name/arity
+\family default 
+\emph toggle 
+.
+ 
+\layout Section
+
+Version 0.1 Release Notes
+\layout Section
+
+Version 0.6 Release Notes
+\layout Section
+
+Version 0.8 Release Notes
+\layout Section
+
+Acknowledgments
+\layout Chapter
+
+How to Run JavaLog
+\layout Standard
+
+This chapter describes
+\layout Section
+
+Installation
+\layout Section
+
+Reading in Programs
+\layout Section
+
+Saving Programs
+\layout Section
+
+Queries
+\layout Section
+
+Syntax Errors
+\layout Chapter
+
+Built-in predicates
+\layout Standard
+
+\layout Subsection
+
+Notational conventions
+\layout Standard
+
+Los nombres de predicados se dan en negrita, seguidos por los argumentos
+ en 
+\emph on 
+itálica
+\emph default 
+.
+ Los argumentos están precedidos por '+', o
+\protected_separator 
+'?'.
+ '+' indica que el argumento debe estar instanciado, mientras que '?' indica
+ que podría no estar instanciado.
+\layout Subsection
+
+Data Base
+\layout Subsubsection
+
+consult(
+\emph on 
++File
+\emph default 
+)
+\layout Standard
+
+Añade las cláusulas existentes en el archivo 
+\family typewriter 
+\emph on 
+File
+\family default 
+\emph default 
+ a las que están almacenadas en la base de datos.
+ El argumento debe ser un átomo que dé el nombre del archivo del que se
+ van a leer las cláusulas.
+ El formato del nombre de archivo depende del sistema operativo que se utilice.
+ Ejemplos:
+\layout LyX-Code
+
+?- consult(archivo).
+\layout LyX-Code
+
+?- consult('practico1.pl').
+\layout LyX-Code
+
+?- consult('
+\backslash 
+facultad
+\backslash 
+ia
+\backslash 
+pop.pl').
+\layout LyX-Code
+
+?- consult('/home/javaProlog/v0.5/test.pl').
+\layout Standard
+
+Cuando Prolog satisface el objetivo 
+\family typewriter 
+consult(
+\emph on 
+File
+\emph default 
+)
+\family default 
+, lee todo el archivo, añadiendo al final de la base de datos las cláusulas
+ que encuentra.
+ Como resultado, las nuevas cláusulas aparecerán detrás de cualquier cláusula
+ ya existente.
+\layout Subsubsection
+
+assert(
+\emph on 
++Term
+\emph default 
+)
+\layout Standard
+
+Añade una cláusula al final de la base de datos.
+ La reevaluación de assert no elimina 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ de la base de datos.
+ 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ debe ser una estructura para que
+\family typewriter 
+ assert(
+\emph on 
+Term
+\emph default 
+)
+\family default 
+ tenga éxito.
+ El predicado 
+\family typewriter 
+assert
+\family default 
+ es equivalente a 
+\family typewriter 
+assertz
+\family default 
+.
+\layout Subsubsection
+
+asserta(
+\emph on 
++Term
+\emph default 
+)
+\layout Standard
+
+Añade una cláusula al principio de la base de datos.
+ Funciona de la misma forma que 
+\family typewriter 
+assert
+\family default 
+.
+\layout Subsection
+
+listing
+\layout Standard
+
+El objetivo 
+\family typewriter 
+listing
+\family default 
+ siempre tiene éxito.
+ Lista por pantalla todas las cláusulas de la base de datos.
+\layout Subsubsection
+
+listing(
+\emph on 
++Atom
+\emph default 
+)
+\layout Standard
+
+El objetivo 
+\family typewriter 
+listing(
+\emph on 
+Atom
+\emph default 
+)
+\family default 
+ lista las cláusulas que contengan 
+\family typewriter 
+\emph on 
+Atom
+\family default 
+\emph default 
+ como functor en la cabeza.
+\layout Subsubsection
+
+retract(
+\emph on 
++Term
+\emph default 
+)
+\layout Standard
+
+El predicado predefinido 
+\family typewriter 
+retract
+\family default 
+ quita una cláusula de la base de datos.
+ El argumento de 
+\family typewriter 
+retract
+\family default 
+ debe ser un término.
+ Cuando se intenta satisfacer 
+\family typewriter 
+retract(
+\emph on 
+Term
+\emph default 
+)
+\family default 
+, 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ se hace corresponder con la primera cláusula de la base de datos que coincida
+ con él, quitándose esta cláusula.
+ Cuando se intenta reevaluar, Prolog busca otra cláusula que coincida.
+\layout Subsubsection
+
+clause(
+\emph on 
++Head
+\emph default 
+, 
+\emph on 
+?Body
+\emph default 
+),
+\layout Standard
+
+Clause se satisface si 
+\emph on 
+Head
+\emph default 
+ y 
+\emph on 
+Body
+\emph default 
+ coinciden con una cláusula existente en la base de datos.
+ 
+\emph on 
+Head
+\emph default 
+ debe estar instanciada de forma tal que al menos se conozca su functor.
+\layout Subsection
+
+Verificación de tipos de términos
+\layout Standard
+
+En ciertos casos es necesario conocer el tipo de dato de un argumento, o
+ si una variable está libre o no.
+ Los siguientes predicados permiten programar en función de dichas condiciones.
+\layout Subsubsection
+
+var(
+\emph on 
++Term
+\emph default 
+)
+\layout Standard
+
+Tiene éxito si 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ es una variable libre (no instanciada).
+ Así, el comportamiento de 
+\family typewriter 
+var
+\family default 
+ es:
+\layout LyX-Code
+
+?- var(X).
+\layout LyX-Code
+
+Yes
+\layout LyX-Code
+
+?- var(123).
+\layout LyX-Code
+
+No
+\layout LyX-Code
+
+?- A=B, C=D, A=1, var(D).
+\layout LyX-Code
+
+No
+\layout Subsubsection
+
+nonvar(
+\emph on 
++Term
+\emph default 
+)
+\layout Standard
+
+El objetivo 
+\family typewriter 
+nonvar(
+\emph on 
+Term
+\emph default 
+)
+\family default 
+ tiene éxito si 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ no es una variable libre.
+ El predicado 
+\family typewriter 
+nonvar
+\family default 
+ es el opuesto de 
+\family typewriter 
+var
+\family default 
+.
+\layout Subsubsection
+
+atom(
+\emph on 
++Term
+\emph default 
+)
+\layout Standard
+
+El predicado tiene éxito si 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ representa en ese momento un átomo Prolog.
+ Además, se verifica:
+\layout LyX-Code
+
+?- atom(13).
+\layout LyX-Code
+
+No
+\layout LyX-Code
+
+?- atom('Programacion Exploratoria').
+\layout LyX-Code
+
+Yes
+\layout LyX-Code
+
+?- atom([1, 2, 3|[X]]).
+\layout LyX-Code
+
+No
+\layout LyX-Code
+
+?- atom(X).
+\layout LyX-Code
+
+No
+\layout Subsubsection
+
+integer(
+\emph on 
++Term
+\emph default 
+)
+\layout Standard
+
+El objetivo 
+\family typewriter 
+integer(
+\emph on 
+Term
+\emph default 
+)
+\family default 
+ se cumple si 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ representa un número entero.
+\layout Subsubsection
+
+atomic(
+\emph on 
++Term
+\emph default 
+) 
+\layout Standard
+
+Tiene éxito si 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ representa un entero o un átomo.
+ El predicado 
+\family typewriter 
+atomic
+\family default 
+ puede definirse mediante 
+\family typewriter 
+atom
+\family default 
+ e 
+\family typewriter 
+integer
+\family default 
+:
+\layout LyX-Code
+
+atomic(X) :- integer(X).
+\layout LyX-Code
+
+atomic(X) :- atom(X).
+\layout Subsection
+
+Análisis y construcción de términos
+\layout Standard
+
+En algunos programas Prolog no es posible anticipar todas las posibles estructur
+as que pueden aparecer.
+ Por ejemplo, para construir un programa que imprima una estructura Prolog
+ indentada con colores, es necesario conocer en tiempo de ejecución los
+ elementos que forman cada estructura
+\begin_float footnote 
+\layout Standard
+
+En Prolog todo puede ser representado mediante una estructura.
+ Por ejemplo, las cláusulas son equivalentes a la estructura ':-'(Head,
+ Body), o la lista [1,2,3] es equivalente a la estructura '|'(1,'|'(2,'|'(3))).
+\end_float 
+ (functor y
+\protected_separator 
+argumentos).
+ 
+\layout Standard
+
+A continuación se describen los predicados 
+\family typewriter 
+functor
+\family default 
+, 
+\family typewriter 
+=..
+\family default 
+
+\protected_separator 
+(univ), 
+\family typewriter 
+arg
+\family default 
+ y 
+\family typewriter 
+name
+\family default 
+, mediante los cuales es posible construir y acceder a los componentes de
+ las estructuras.
+\layout Subsubsection
+
+functor(
+\emph on 
+?Term
+\emph default 
+,
+\emph on 
+ ?Functor
+\emph default 
+,
+\emph on 
+ ?Arity
+\emph default 
+)
+\layout Standard
+
+El objetivo tiene éxito si 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ es una estructura con functor 
+\family typewriter 
+\emph on 
+Functor
+\family default 
+\emph default 
+ y aridad (número de argumentos) 
+\family typewriter 
+\emph on 
+Arity
+\family default 
+\emph default 
+.
+ Si 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ está instanciado y es una estructura o átomo, se hacen corresponder 
+\family typewriter 
+\emph on 
+Functor
+\family default 
+\emph default 
+ y 
+\family typewriter 
+\emph on 
+Arity
+\family default 
+\emph default 
+ con el functor y aridad de 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+:
+\layout LyX-Code
+
+?- functor(f(1, 2, g(X)), F, A).
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- functor(f(1, 2, g(_0)), f, 3).
+\layout LyX-Code
+
+?- functor(2*3, F, A).
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- functor(*(2, 3), *, 2).
+\layout LyX-Code
+
+?- functor([1, 2 ,3], F, A).
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- functor([1, 2, 3], ., 2).
+\layout LyX-Code
+
+?- functor(javaprolog, F, A).
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- functor(javaprolog, javaprolog, 0).
+\layout Standard
+
+El segundo uso de functor se da cuando 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ está sin instanciar y los otros dos argumentos están instanciados especificando
+ un functor y una aridad.
+ Dicho objetivo siempre se cumple, y como consecuencia 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ queda instanciado con una estructura con el functor y número de argumentos
+ dados:
+\layout LyX-Code
+
+?- functor(T, pepe, 4).
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- functor(pepe(_25, _26, _27, _28), pepe, 4).
+\layout Subsubsection
+
+arg(
+\emph on 
++Arg
+\emph default 
+, 
+\emph on 
++Term
+\emph default 
+, 
+\emph on 
+?Value
+\emph default 
+)
+\layout Standard
+
+Para que 
+\family typewriter 
+arg
+\family default 
+ tenga éxito 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ debe estar instanciado con una estructura, 
+\family typewriter 
+\emph on 
+Arg
+\family default 
+\emph default 
+ con un entero entre 1 y la aridad de 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+.
+ Así, 
+\family typewriter 
+arg(
+\emph on 
+Arg
+\emph default 
+, 
+\emph on 
+Term
+\emph default 
+, 
+\emph on 
+Value
+\emph default 
+)
+\family default 
+ se cumple si el argumento 
+\family typewriter 
+\emph on 
+Arg
+\family default 
+\emph default 
+ de 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ es 
+\family typewriter 
+\emph on 
+Value
+\family default 
+\emph default 
+.
+\layout LyX-Code
+
+?- arg(2, app(a, b, c), V).
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- arg(2, app(a, b, c), b).
+\layout LyX-Code
+
+?- arg(2, [a, b, c], V).
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- arg(2, [a, b, c], [b, c]).
+\layout LyX-Code
+
+?- arg(2, 10+3+8, 8).
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- arg(2, +(+(10, 3), 8), 8).
+\layout Subsubsection
+
+
+\emph on 
+?Term
+\emph default 
+ =..
+ 
+\emph on 
+?List
+\layout Standard
+
+Mediante 
+\family typewriter 
+functor
+\family default 
+ y 
+\family typewriter 
+arg
+\family default 
+ es posible crear y acceder a argumentos de estructuras arbitrarias.
+ El objetivo 
+\family typewriter 
+\emph on 
+Term =..
+ List
+\family default 
+\emph default 
+ significa que 
+\family typewriter 
+\emph on 
+List
+\family default 
+\emph default 
+ es la lista formada por el functor de 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ seguido de los argumentos de 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+.
+ Si 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ está instanciada, Prolog construye una lista y trata de unificarla con
+ 
+\family typewriter 
+\emph on 
+List
+\family default 
+.
+
+\emph default 
+ Similarmente, si 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ está sin instanciar, 
+\family typewriter 
+\emph on 
+List
+\family default 
+\emph default 
+ se utiliza para construir una estructura, la cual deberá unificar con 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ para que el objetivo tenga éxito.
+\layout LyX-Code
+
+?- padre(martin, pedro) =..
+ L.
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- =..(padre(martin, pedro), [padre, martin, pedro]).
+\layout LyX-Code
+
+?- append([A|B], C, [A|D]) =..
+ L.
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- =..(append([_0|_1], _2, [_0|_2]), 
+\layout LyX-Code
+
+
+\protected_separator 
+ 
+\protected_separator 
+ 
+\protected_separator 
+ 
+\protected_separator 
+ 
+\protected_separator 
+ 
+\protected_separator 
+ 
+\protected_separator 
+ 
+\protected_separator 
+ 
+\protected_separator 
+ 
+\protected_separator 
+ [append, [_0|_1], _2, [_0|_2]]).
+\layout LyX-Code
+
+?- [1, 2, 3] =..
+ L.
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- =..([1, 2, 3], [., 1, [2, 3]]).
+\layout LyX-Code
+
+?- 5*2+4 =..
+ X.
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- =..(+(*(5, 2), 4), [+, *(5, 2), 4]).
+\layout Subsubsection
+
+name(
+\emph on 
+?Atom
+\emph default 
+, 
+\emph on 
+?List
+\emph default 
+)
+\layout Standard
+
+El predicado 
+\family typewriter 
+name
+\family default 
+ relaciona un átomo con la lista de caracteres (códigos ASCII) que lo constituye
+n.
+ El objetivo 
+\family typewriter 
+name(
+\emph on 
+Atom
+\emph default 
+, 
+\emph on 
+List
+\emph default 
+)
+\family default 
+ significa que los caracteres del átomo 
+\family typewriter 
+\emph on 
+Atom
+\family default 
+\emph default 
+ son los miembros de la lista 
+\family typewriter 
+\emph on 
+List
+\family default 
+\emph default 
+.
+\layout LyX-Code
+
+?-
+\latex latex 
+
+\backslash 
+ {name}
+\latex default 
+(manzana, X).
+\layout LyX-Code
+
+yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :-
+\latex latex 
+
+\backslash 
+ {name}
+\latex default 
+(manzana, [109, 97, 110, 121, 97, 110, 97]).
+\layout LyX-Code
+
+?-
+\latex latex 
+
+\backslash 
+ {name}
+\latex default 
+(X, [109, 97, 110, 121, 97, 110, 97]).
+\layout LyX-Code
+
+yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :-
+\latex latex 
+
+\backslash 
+ {name}
+\latex default 
+(manzana, [109, 97, 110, 121, 97, 110, 97]).
+\layout Subsection
+
+Predicados de control
+\layout Standard
+
+Mediante los predicados de control es posible modificar la secuencia normal
+ de acontecimientos que ocurren durante la evaluación y reevaluación.
+\layout Subsubsection
+
+fail
+\layout Standard
+
+El predicado 
+\family typewriter 
+fail
+\family default 
+ siempre falla.
+ Hay dos ocasiones en las que 
+\family typewriter 
+fail
+\family default 
+ resulta de utilidad.
+ Por ejemplo, cuando se quiere reevaluar otro objetivo explícitamente para
+ que considere todas las soluciones:
+\layout LyX-Code
+
+?- padre(X, Y), print(padre(X, Y)), fail.
+\layout LyX-Code
+
+padre(oscar, pedro) 
+\layout LyX-Code
+
+padre(martin, pedro) 
+\layout LyX-Code
+
+padre(ricardo, pedro) 
+\layout LyX-Code
+
+padre(matilde, oscar) 
+\layout LyX-Code
+
+padre(julia, ricardo) 
+\layout LyX-Code
+
+padre(mariano, ricardo) 
+\layout LyX-Code
+
+No 
+\protected_separator 
+ 
+\protected_separator 
+ 
+\protected_separator 
+query :- padre(_0, _1), print(padre(_0, _1)), fail.
+\layout Standard
+
+Otro caso muy común donde se usa 
+\family typewriter 
+fail
+\family default 
+ es cuando se quiere indicar en forma explícita la falsedad de determinado
+ objetivo.
+ Por ejemplo, el predicado 
+\family typewriter 
+not
+\family default 
+ puede definirse como:
+\layout LyX-Code
+
+not(X) :- call(X), !, fail.
+\layout LyX-Code
+
+not(_).
+\layout Subsubsection
+
+repeat
+\layout Standard
+
+El predicado predefinido 
+\family typewriter 
+repeat
+\family default 
+ se utiliza para generar soluciones múltiples mediante el mecanismo de reevaluac
+ión.
+ Su reevaluación siempre tiene éxito.
+\layout Subsubsection
+
+cut (!)
+\layout Standard
+
+El objetivo 
+\family typewriter 
+!
+\family default 
+ fuerza a Prolog a mantener todas las desiciones hechas desde que se evaluó
+ el objetivo padre.
+ Todas las demás alternativas se deshechan, por lo tanto, todo intento de
+ resatisfacer cualquier objetivo entre el objetivo padre y el cut fracasará.
+\layout Standard
+
+Ejemplo:
+\layout LyX-Code
+
+obj :- a, b, c, !, d, e, f.
+\layout Standard
+
+Prolog efectuará reevaluaciones entre los objetivos 
+\family typewriter 
+a
+\family default 
+, 
+\family typewriter 
+b
+\family default 
+ y 
+\family typewriter 
+c
+\family default 
+, hasta que 
+\family typewriter 
+c
+\family default 
+ tenga éxito.
+ A continuación podría haber reevaluaciones entre 
+\family typewriter 
+d
+\family default 
+, 
+\family typewriter 
+e
+\family default 
+ y
+\family typewriter 
+
+\protected_separator 
+f
+\family default 
+, pero si 
+\family typewriter 
+d
+\family default 
+ fracasa, no se reevaluarán 
+\family typewriter 
+a
+\family default 
+, 
+\family typewriter 
+b
+\family default 
+ ni 
+\family typewriter 
+c
+\family default 
+, por lo que fracasará 
+\family typewriter 
+obj
+\family default 
+.
+\layout Subsection
+
+Construcción de objetivos compuestos
+\layout Subsubsection
+
+Conjunción
+\protected_separator 
+
+\layout Standard
+
+El functor 
+\family typewriter 
+','
+\family default 
+ especifica una conjunción de objetivos (una
+\emph on 
+ y
+\emph default 
+ lógica).
+ El objetivo 
+\family typewriter 
+','(
+\emph on 
+Term1
+\emph default 
+, 
+\emph on 
+Term2
+\emph default 
+)
+\family default 
+ se cumple si 
+\family typewriter 
+\emph on 
+Term1
+\family default 
+\emph default 
+ y
+\emph on 
+
+\protected_separator 
+
+\family typewriter 
+Term2
+\family default 
+\emph default 
+ se cumplen.
+\layout Standard
+
+El functor 
+\family typewriter 
+','
+\family default 
+ también puede utilizarse como operador infijo asociativo por la derecha,
+ de forma que 
+\family typewriter 
+a
+\family default 
+, 
+\family typewriter 
+b
+\family default 
+, 
+\family typewriter 
+c
+\family default 
+ equivale 
+\family typewriter 
+a: ','(a, ','(b, c))
+\family default 
+.
+\layout Subsubsection
+
+Disyunción
+\layout Standard
+
+El functor 
+\family typewriter 
+';'
+\family default 
+ especifica una disyunción (una 
+\emph on 
+o
+\emph default 
+ lógica) de objetivos.
+ El objetivo 
+\family typewriter 
+';'(
+\emph on 
+Term1
+\emph default 
+, 
+\emph on 
+Term2
+\emph default 
+)
+\family default 
+ se cumple si 
+\family typewriter 
+\emph on 
+Term1
+\family default 
+\emph default 
+ o
+\emph on 
+
+\protected_separator 
+
+\family typewriter 
+Term2
+\family default 
+\emph default 
+ se cumplen.
+\layout Standard
+
+El functor 
+\family typewriter 
+';'
+\family default 
+ también puede utilizarse como operador infijo asociativo por la derecha,
+ de forma que 
+\family typewriter 
+a
+\family default 
+; 
+\family typewriter 
+b
+\family default 
+; 
+\family typewriter 
+c
+\family default 
+ equivale a: 
+\family typewriter 
+';'(a, ';'(b, c))
+\family default 
+.
+\layout Subsubsection
+
+call(
+\emph on 
++Goal
+\emph default 
+)
+\layout Standard
+
+
+\family typewriter 
+call(
+\emph on 
+Goal
+\emph default 
+)
+\family default 
+ se cumple si tiene éxito el intento de satisfacer 
+\family typewriter 
+\emph on 
+Goal
+\family default 
+\emph default 
+.
+ 
+\family typewriter 
+\emph on 
+Goal
+\family default 
+\emph default 
+ debe estar instanciado.
+\layout Subsubsection
+
+not(
+\emph on 
++Goal
+\emph default 
+)
+\layout Standard
+
+El objetivo 
+\family typewriter 
+not(
+\emph on 
+Goal
+\emph default 
+)
+\family default 
+ se cumple si fracasa el intento de satisfacer 
+\family typewriter 
+\emph on 
+Goal
+\family default 
+\emph default 
+.
+\layout Subsection
+
+Igualdad
+\layout Subsubsection
+
+
+\begin_inset LatexCommand \label{sec:unify}
+
+\end_inset 
+
+
+\emph on 
+?Term1
+\emph default 
+ = 
+\emph on 
+?Term2
+\layout Standard
+
+
+\family typewriter 
+\emph on 
+Term1
+\emph default 
+ = 
+\emph on 
+Term2
+\family default 
+\emph default 
+ tiene éxito sólo si 
+\family typewriter 
+\emph on 
+Term1
+\family default 
+\emph default 
+ y 
+\family typewriter 
+\emph on 
+Term2
+\family default 
+\emph default 
+ unifican.
+\layout LyX-Code
+
+?- A = B.
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+query :- _1 = _1.
+\layout LyX-Code
+
+?- A=1, B=2, A=B.
+\layout LyX-Code
+
+No 
+\protected_separator 
+ 
+\protected_separator 
+ query :- =(_0, 1), =(_1, 2), =(_0, _1).
+\layout LyX-Code
+
+?- A = 1+2, B is 1+2, A=B.
+\layout LyX-Code
+
+No 
+\protected_separator 
+ 
+\protected_separator 
+ query :- =(_0, +(1, 2)), is(_1, +(1, 2)), =(_0, _1).
+\layout LyX-Code
+
+?- abc(1, 2, [a, b]) = abc(X, Y, Z).
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+query :- =(abc(1, 2, [a, b]), abc(1, 2, [a, b])).
+\layout Subsubsection
+
+
+\begin_inset LatexCommand \label{sec:notunify}
+
+\end_inset 
+
+
+\emph on 
+?Term1
+\emph default 
+ 
+\backslash 
+= 
+\emph on 
+?Term2
+\layout Standard
+
+El predicado 
+\family typewriter 
+'
+\backslash 
+='
+\family default 
+ es el opuesto a 
+\family typewriter 
+'='
+\family default 
+, por lo tanto 
+\family typewriter 
+\emph on 
+Term1
+\emph default 
+
+\protected_separator 
+
+\backslash 
+=
+\emph on 
+
+\protected_separator 
+Term2
+\family default 
+\emph default 
+ tiene éxito si 
+\family typewriter 
+\emph on 
+Term1
+\emph default 
+
+\protected_separator 
+=
+\emph on 
+
+\protected_separator 
+Term2
+\family default 
+\emph default 
+ falla.
+\layout Subsubsection
+
+
+\emph on 
+?Term1
+\emph default 
+ == 
+\emph on 
+?Term2
+\layout Standard
+
+El predicado 
+\family typewriter 
+'=='
+\family default 
+ representa una verificación de igualdad más estricta que 
+\family typewriter 
+'='
+\family default 
+, en el sentido de que 
+\family typewriter 
+\emph on 
+Term1
+\emph default 
+ =
+\emph on 
+ Term2
+\family default 
+ 
+\emph default 
+siempre se cumple si 
+\family typewriter 
+\emph on 
+Term1
+\emph default 
+ ==
+\emph on 
+ Term2
+\family default 
+\emph default 
+ se cumple, pero no simpre a la inversa.
+ La diferencia entre ambos consiste en que 
+\family typewriter 
+'='
+\family default 
+ considera una variable sin instanciar como 
+\emph on 
+cualquier cosa
+\emph default 
+, mientras que 
+\family typewriter 
+'=='
+\family default 
+ considera la dirección de memoria de las variables.
+ Ejemplo:
+\layout LyX-Code
+
+?- A == B.
+\layout LyX-Code
+
+No 
+\protected_separator 
+ 
+\protected_separator 
+ 
+\protected_separator 
+query :- ==(_0, _1).
+\layout LyX-Code
+
+?- A == A
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- ==(_0, _0).
+\layout LyX-Code
+
+?- X=[H|T], app(X) == app([H|T]).
+\layout LyX-Code
+
+Yes 
+\protected_separator 
+ 
+\protected_separator 
+ query :- =([_1|_2], [_1|_2]), ==(app([_1|_2]), app([_1|_2])).
+\layout Subsubsection
+
+
+\emph on 
+?Term1
+\emph default 
+ 
+\backslash 
+== 
+\emph on 
+?Term2
+\layout Standard
+
+
+\family typewriter 
+\emph on 
+?Term1
+\emph default 
+ 
+\backslash 
+== 
+\emph on 
+?Term2
+\family default 
+\emph default 
+ tiene éxito si 
+\family typewriter 
+\emph on 
+?Term1
+\emph default 
+ == 
+\emph on 
+?Term2
+\family default 
+\emph default 
+ falla.
+\layout Subsection
+
+Aritmética entera
+\layout Subsubsection
+
+
+\emph on 
+?Integer
+\emph default 
+ is +
+\emph on 
+Term
+\layout Standard
+
+El objetivo 
+\family typewriter 
+\emph on 
+Integer
+\emph default 
+ is 
+\emph on 
+Term
+\family default 
+\emph default 
+ tiene éxito si la evaluación de 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ unifica con
+\emph on 
+ 
+\family typewriter 
+Integer
+\family default 
+\emph default 
+.
+ Esto significa que 
+\family typewriter 
+\emph on 
+Term
+\family default 
+\emph default 
+ debe ser aritméticamente 
+\emph on 
+evaluable
+\emph default 
+, por lo tanto debe ser una estructura con functor '+', '-', '*', '/' o
+\protected_separator 
+'mod' con argumentos cuya evaluación sea un entero.
+\layout Subsubsection
+
+
+\emph on 
+?Integer1
+\emph default 
+ = 
+\emph on 
+?Integer2
+\layout Standard
+
+Se cumple si 
+\family typewriter 
+\emph on 
+Integer1
+\family default 
+\emph default 
+ unifica con 
+\family typewriter 
+\emph on 
+Integer2
+\family default 
+\emph default 
+ (ver
+\protected_separator 
+
+\begin_inset LatexCommand \ref{sec:unify}
+
+\end_inset 
+
+).
+\layout Subsubsection
+
+
+\emph on 
+?Integer1
+\emph default 
+ 
+\backslash 
+= 
+\emph on 
+?Integer2
+\layout Standard
+
+Se cumple si 
+\family typewriter 
+\emph on 
+Integer1
+\family default 
+\emph default 
+ no unifica con 
+\family typewriter 
+\emph on 
+Integer2
+\family default 
+\emph default 
+ (ver
+\protected_separator 
+
+\begin_inset LatexCommand \ref{sec:notunify}
+
+\end_inset 
+
+).
+\layout Subsubsection
+
+
+\emph on 
++Integer1
+\emph default 
+ < 
+\emph on 
++Integer2
+\layout Standard
+
+El predicado 
+\family typewriter 
+\emph on 
+Integer1
+\emph default 
+ < 
+\emph on 
+Integer2
+\family default 
+\emph default 
+ se cumple si 
+\family typewriter 
+\emph on 
+Integer1
+\family default 
+\emph default 
+ es menor que 
+\family typewriter 
+\emph on 
+Integer2
+\family default 
+\emph default 
+.
+ Ambos argumentos deben estar instanciados con un entero.
+\layout Subsubsection
+
+
+\emph on 
++Integer1
+\emph default 
+ =< 
+\emph on 
++Integer2
+\layout Standard
+
+El predicado 
+\family typewriter 
+\emph on 
+Integer1
+\emph default 
+ =< 
+\emph on 
+Integer2
+\family default 
+\emph default 
+ se cumple si 
+\family typewriter 
+\emph on 
+Integer1
+\family default 
+\emph default 
+ es menor o igual que 
+\family typewriter 
+\emph on 
+Integer2
+\family default 
+\emph default 
+.
+ Ambos argumentos deben estar instanciados con un entero.
+\layout Subsubsection
+
+
+\emph on 
++Integer1
+\emph default 
+ > 
+\emph on 
++Integer2
+\layout Standard
+
+El predicado 
+\family typewriter 
+\emph on 
+Integer1
+\emph default 
+ > 
+\emph on 
+Integer2
+\family default 
+\emph default 
+ se cumple si 
+\family typewriter 
+\emph on 
+Integer1
+\family default 
+\emph default 
+ es mayor que 
+\family typewriter 
+\emph on 
+Integer2
+\family default 
+\emph default 
+.
+ Ambos argumentos deben estar instanciados con un entero.
+\layout Subsubsection
+
+
+\emph on 
++Integer1
+\emph default 
+ >= 
+\emph on 
++Integer2
+\layout Standard
+
+El predicado 
+\family typewriter 
+\emph on 
+Integer1
+\emph default 
+ >= 
+\emph on 
+Integer2
+\family default 
+\emph default 
+ se cumple si 
+\family typewriter 
+\emph on 
+Integer1
+\family default 
+\emph default 
+ es mayor o igual que
+\emph on 
+ 
+\family typewriter 
+Integer2
+\family default 
+\emph default 
+.
+ Ambos argumentos deben estar instanciados con un entero.
+\layout Chapter
+
+The module system
+\layout Chapter
+
+Distributed Prolog
+\layout Chapter
+
+Mixing Java and Prolog
+\layout Standard
+\pagebreak_top 
+
+\latex latex 
+
+\backslash 
+addcontentsline{toc}{chapter}{References}
+\latex default 
+
+\begin_inset LatexCommand \BibTeX[tesis]{/home/azunino/tesis/tesis}
+
+\end_inset 
+
+
+\the_end

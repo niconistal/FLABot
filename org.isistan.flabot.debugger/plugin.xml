@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension
+       id="org.isistan.flabot.debugger.installBreakpointsAction"
+       name="Flabot Debugger Install breakpoints action"
+       point="org.isistan.flabot.engine.failureLocatedAction">
+    <action
+          class="org.isistan.flabot.debugger.InstallBreakpointsAction"
+          description="Install breakpoints for the mapped behaviors"
+          icon="resource/icon/failureLocatedActionIcon.gif"
+          name="Flabot Debugger Install Breakpoints"/>
+ </extension>
+
+</plugin>

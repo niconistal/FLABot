@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-15">
+<META NAME="GENERATOR" CONTENT="Quanta">
+<title>
+Visualizador de ambientes Movilog
+</title>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#0000ee" vlink="#551a8b">
+<div  align="center"><h1>Visualizador de ambientes Movilog</h1></font></div>
+<br><br><br>
+<p>El objetivo de esta herramienta  es  mostrar información sobre un ambiente Movilog, de forma que pueda "tracearse" la ejecución de los diferentes Brainlets presentes en el ambiente.
+</p>
+<p>La idea es que la información necesaria sea mostrada al usuario de forma simple, sin que este deba molestarse en tener que abrir nuevas ventanas para observar algún acontecimiento ocurrido en el ambiente.
+</p>
+<p>Básicamente la interfaz a usuario esta compuesta por 4 paneles. Los paneles de la izquierda contienen un árbol cada uno. El panel de la parte superior derecha esta dedicado a los brainlets y el de la inferior también derecha, a las capacidades.
+</p>
+<p>Como se ve en la <a name="figura1" href="#figura1">Figura 1</a>, el panel superior izquierdo nos muestra la red Movilog, compuesta de redes lógicas y hosts. En la implementación actual solo existe una red lógica y su nombre es  <b><i>Movilog Network</i></b> . El icono de color verde en la raíz del árbol nos indica que la red, no está vacía (contiene al menos un host). En caso de no haber ningún host conectado el icono es de color rojo.
+</p>
+<p>El icono que representa una pantalla negra, indica que ese host no aloja actualmente  ni capacidades ni brainlets. Lo que puede observarse también en el par de números entre paréntesis justo a la derecha del nombre del host. Esto indica la cantidad de capacidades (el primer cero) y de brainlets (el segundo) que aloja el host. <i>(0/0) </i>entonces indica, 0 capacidades y 0 brainlets.
+</p>
+<p>Si por el contrario el host aloja al menos un Brainlet o capacidad la pantalla del icono aparece de color azul.
+</p>
+<p><a name="figura1" href="#figura1"><div align="center"><img src="images/image002.jpg" width=567 height=371 border=0></a></div>
+<br><div align="center"><font size="-1"><b>Figura 1</b>: Vista de  la interface cuando solo hay un host en la red</font></div>
+</p>
+<p>Cliqueando dos veces sobre algún host  aparece un árbol  en el panel posterior donde se observa información específica del host. Esto es, path al <i>servlet</i>, puerto del <i>servlet engine </i>y capacidades alojadas. Esto se aprecia en la <a name="figura2" href="#figura2">Figura 2</a> en el recuadro de color rojo.
+</p>
+<p><a name="figura2" href="#figura2"><div align="center"><img src="images/image004.jpg" width=567 height=371 align="middle" border=0></a></div>
+<br><div align="center"><font size="-1"><b>Figura 2</b>: El árbol recuadrado con rojo muestra información específica del host. En este caso el host no contiene ninguna capacidad.</font></div>
+</p>
+<p>En la <a name="figura3" href="#figura3">Figura 3</a> se muestra la interfaz completamente desplegada. En el panel izquierdo superior y redondeado con rojo aparece un brainlet local al host (por ello aparece como su hijo en el árbol). El icono indica que el brainlet se encuentra suspendido.
+</p>
+<p>Haciendo doble click con el botón izquierdo del Mouse sobre un brainlet aparecerá en el panel de los brainlets una nueva pestaña con el identificador de este, conteniendo toda la información del brainlet que se puede mostrar según su estado de ejecución. Puede verse que en el panel, aparece debajo del identificador del brainlet una etiqueta en color violeta, que indica la ubicación actual del brainlet. Hay que aclarar aquí que si el brainlet esta corriendo, al hacer doble clic sobre este, aparecerá un mensaje de error dado que no se puede mostrar información en ese momento.
+</p>
+<p>En el árbol inferior aparece una capacidad, donde el icono en colores indica que esa capacidad esta activa. Si no lo estuviere el icono aparece en tonos de gris. Al igual que con los brainlets, presionando dos veces el botón izquierdo del mouse sobre una capacidad aparecerá una pestaña en panel de las capacidades en donde podrán verse las cláusulas de la capacidad.
+</p>
+<p><a name="figura3" href="#figura3"><div align="center"><img src="images/image006.jpg" width=529 height=404 border=0></a></div>
+<br><font size="-1"><div align="center"><b>Figura 3</b>: Interfaz completamente desplegada.</div></font>
+</p>
+<h2>Posibilidades de configuración</h2>
+<p>Cliqueando sobre un host con el botón derecho del mouse se despliega un marco que permite observar características  y establecer propiedades sobre un host.
+(<a name="figura4" href="#figura4">Figura 4</a>).
+</p>
+<p>En la parte superior del marco de propiedades, aparece un panel con información como el puerto, cuantas capacidades y brainlets posee, el nombre y la dirección IP, etc. Hay también dos opciones de configuración en cuanto al comportamiento del host para con los brainlets, tanto locales como remotos que ocasionalmente estén ejecutando en él.
+</p>
+<p>Las  opciones son <b>Suspend agents before moving to another site,</b> si es <b>true </b>(lo cual está indicado por el color azul de la casilla), cada vez que un brainlet intente moverse a otro sitio suspenderá su ejecución, en caso contrario se moverá sin suspenderse. Por defecto está opción es true para todos los host de la red, y su propósito es permitir al usuario del visualizador un seguimiento mas detallado de la ejecución de los brainlets.
+</p>
+<p>Otra opción es <b>Automatically remove brainlets on finalize</b> que si es <b>true</b> (también indicado por el color azul) hace que los brainlets sean removidos automáticamente del visualizador, de otra manera los brainlets que finalicen su ejecución se mantienen en el host (del visualizador no el host real). Notar que si los brainlets son eliminados cuando finalizan el usuario no podrá consultar el resultado de la consulta ni la instanciación de las variables.
+</p>
+<p>Cuando está opción se pone en true se habilita el botón <b>Remove</b> que permite eliminar los brainlets que hayan  finalizado.
+</p>
+<p><a name="figura4" href="#figura4"><div align="center"><img src="images/image008.jpg" width=493 height=323 border=0></a></div>
+<font size="-1"><div align="center"><b>Figura 4:</b> Opciones de configuracion para los hosts</div></font>
+</p>
+<h2>Comandos del visualizador</h2>
+<p>La interacción con el visualizador es a través de menús desplegables desde los brainlets y desde las capacidades, tanto desde los árboles como desde los paneles.
+</p>
+<p>Tanto en la <a name="figura5" href="#figura5">Figura 5</a> como en la <a name="figura6" href="#figura6">Figura 6</a> pueden verse menús con los posibles comandos asociados a cada ítem visualizado.
+</p>
+<p><a name="figura5" href="#figura5"><div align="center"><img src="images/image010.jpg" width=529 height=407 border=0></a></div>
+<br><font size="-1"><div align="center"><b>Figura 5</b>: Menú en el nodo brainlet.</div></font>
+</p>
+<p>Básicamente sobre un brainlet puede continuarse su ejecución o eliminarlo si es que finalizó. La opción extra en el panel permite eliminar la vista del brainlet del mismo.
+</p>
+<p><a name="figura6" href="#figura6"><div align="center"><img src="images/image012.jpg" width=526 height=389 border=0></a></div>
+<br><div align="center"><font size="-1"><b>Figura 6</b>: Menu en el panel de brainlets.</font></div>
+</p>
+<p>Sobre las capacidades la única opción es la de eliminar una vista del panel al igual que ocurría con los Brainlets (ver <a name="figura7" href="#figura7">Figura 7</a>).
+</p>
+<p><a name="figura7" href="#figura7"><div align="center"><img src="images/image014.jpg" width=526 height=335 border=0></a></div>
+<br><div align="center"><font size="-1"><b>Figura 7</b>: Menú de opciones para una capacidad.</font></div>
+</p>
+<h2>Visualización de condiciones anormales</h2>
+<p>Cuando un brainlet intenta moverse a un host que por alguna razón se desconectó de la red, hace una serie de reintentos hasta que por fin falla. Cuando esto ocurre, se informa mediante un mensaje en el panel que corresponde al brainlet en cuestión. El mensaje es de color rojo y consta de la ubicación a donde se está intentando mover y la cantidad de reintentos efectuados. También cambian el icono en el árbol y en el panel, como puede verse en la figura siguiente
+(<a name="figura8" href="#figura8">Figura 8</a>).
+</p>
+<p><a name="figura8" href="#figura8"><div align="center"><img src="images/image016.jpg" width=526 height=397 border=0></a></div>
+<br><font size="-1"><div align="center"><b>Figura 8</b>: Vista de cuando un brainlet falla en su intento de moverse a otro sitio.</div></font>
+</p>
+<h2>El ejemplo</h2>
+<p>El archivo <a href="./JavaLog/examples/ViewerTest.java" name="viewertest" type="application/java">ViewerTest.java</a> ubicado en Javalog.mobility.examples contiene el ejemplo que se utilizó para ilustrar este documento. Es un simple agente cuyo cometido es armar una computadora conteniendo un procesador, monitor, placa de video y disco rígido y cuyo costo sea menor que 545. Como este ejemplo utiliza movilidad proactiva deben sumistrarsele las ubicaciones de las diferentes máquinas (cuatro en total). Estas se encuentran en el archivo machines.properties en ese mismo directorio.
+</p>
+<p>Al ejecutarlo abre un FileDialog para indicar a donde se encuentra este último archivo.
+</p>
+</body>
+</html>

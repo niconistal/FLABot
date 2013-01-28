@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="org.isistan.javalog"
+   name="JavaLog Library Plug-in"
+   version="2.4.1"
+   provider-name="www.exa.unicen.edu.ar/isistan/">
+   <runtime>
+      <library name="lib/javalog.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/jgl3.1.0.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/antlrall.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/gnu-regexp-1.1.4.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+
+</plugin>

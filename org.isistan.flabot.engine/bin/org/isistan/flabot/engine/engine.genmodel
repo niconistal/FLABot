@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.isistan.flabot.engine/src"
+    modelPluginID="org.isistan.flabot.engine" modelName="Engine" importerID="org.eclipse.emf.importer.ecore"
+    usedGenPackages="../../../../../../org.isistan.flabot/src/org/isistan/flabot/flabot.genmodel#//editormodel ../../../../../../org.isistan.flabot/src/org/isistan/flabot/flabot.genmodel#//componentmodel ../../../../../../org.isistan.flabot/src/org/isistan/flabot/flabot.genmodel#//ucmmodel ../../../../../../org.isistan.flabot/src/org/isistan/flabot/flabot.genmodel#//coremodel ../../../../../../org.isistan.flabot.trace/src/org/isistan/flabot/trace/trace.genmodel#//config ../../../../../../org.isistan.flabot.trace/src/org/isistan/flabot/trace/trace.genmodel#//log ../../../../../../org.isistan.flabot.mapping/src/org/isistan/flabot/mapping/mapping.genmodel#//mappingmodel ../../../../../../org.isistan.flabot.launcher/src/org/isistan/flabot/launcher/launchermodel.genmodel#//filtermodel">
+  <foreignModel>executionstate.ecore</foreignModel>
+  <genPackages prefix="Executionstate" basePackage="org.isistan.flabot.engine" disposableProviderFactory="true"
+      ecorePackage="executionstate.ecore#/">
+    <genEnums ecoreEnum="executionstate.ecore#//ExecutionState">
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/Executed"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/Faulty"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/NotExecuted"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/NoActionState"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/FaultyCurrent"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/FaultyConstrain"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/FaultyPrevious"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/FaultyPrecondition"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/FaultyPath"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/FaultyNextLevels"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/FaultyConstraintStart"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/ProbablyFaulty"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/Uncertain"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/MultipleErrors"/>
+      <genEnumLiterals ecoreEnumLiteral="executionstate.ecore#//ExecutionState/StateFromMapping"/>
+    </genEnums>
+    <genClasses ecoreClass="executionstate.ecore#//BasicMappingBasedFilter"/>
+    <genClasses ecoreClass="executionstate.ecore#//Diagnostic">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference executionstate.ecore#//Diagnostic/diagnostician"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute executionstate.ecore#//Diagnostic/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference executionstate.ecore#//Diagnostic/additionalData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute executionstate.ecore#//Diagnostic/state"/>
+    </genClasses>
+    <genClasses ecoreClass="executionstate.ecore#//ManualStateDeterminationStrategy"/>
+    <genClasses ecoreClass="executionstate.ecore#//ManualTraceInferenceStrategy"/>
+    <genClasses image="false" ecoreClass="executionstate.ecore#//MappingBasedFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference executionstate.ecore#//MappingBasedFilter/mapping"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference executionstate.ecore#//MappingBasedFilter/logFilter"/>
+    </genClasses>
+    <genClasses ecoreClass="executionstate.ecore#//SimpleTraceInferenceStrategy"/>
+    <genClasses image="false" ecoreClass="executionstate.ecore#//StateDeterminationStrategy">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference executionstate.ecore#//StateDeterminationStrategy/responsibility"/>
+    </genClasses>
+    <genClasses ecoreClass="executionstate.ecore#//StateDeterminationStrategyRegistry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference executionstate.ecore#//StateDeterminationStrategyRegistry/registry"/>
+    </genClasses>
+    <genClasses ecoreClass="executionstate.ecore#//TraceBasedStateDeterminationStrategy">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference executionstate.ecore#//TraceBasedStateDeterminationStrategy/traceInferenceStrategy"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="executionstate.ecore#//TraceInferenceStrategy">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference executionstate.ecore#//TraceInferenceStrategy/stateDeterminationStrategy"/>
+    </genClasses>
+    <genClasses ecoreClass="executionstate.ecore#//ResponsibilityToStateDeterminationStrategyMapEntry">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference executionstate.ecore#//ResponsibilityToStateDeterminationStrategyMapEntry/key"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference executionstate.ecore#//ResponsibilityToStateDeterminationStrategyMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="executionstate.ecore#//EStringToEJavaObjectMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute executionstate.ecore#//EStringToEJavaObjectMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute executionstate.ecore#//EStringToEJavaObjectMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="executionstate.ecore#//StateFromMappingStateDeterminationStrategy"/>
+    <genClasses ecoreClass="executionstate.ecore#//OrFilter">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference executionstate.ecore#//OrFilter/combinedFilters"/>
+    </genClasses>
+    <genClasses ecoreClass="executionstate.ecore#//PrologProviderStrategy"/>
+    <genClasses ecoreClass="executionstate.ecore#//SimplePrologProviderStrategy"/>
+    <genClasses ecoreClass="executionstate.ecore#//GeneralLogFilterStrategy"/>
+    <genClasses ecoreClass="executionstate.ecore#//SimpleGeneralLogFilterStrategy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute executionstate.ecore#//SimpleGeneralLogFilterStrategy/prologCodeText"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

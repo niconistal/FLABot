@@ -1,0 +1,3 @@
+/** * $Id: MethodBuilder.java,v 1.4 2006/03/18 00:25:15 dacostae Exp $ * $Author: dacostae $ */package org.isistan.flabot.javamodel.jdt;
+
+import org.eclipse.jdt.core.IMethod;import org.eclipse.jdt.core.JavaModelException;import org.isistan.flabot.javamodel.InternalModelException;import org.isistan.flabot.javamodel.JMethod;import org.isistan.flabot.javamodel.ObjectMirrorBuilder;public class MethodBuilder implements ObjectMirrorBuilder<JMethod> {	public boolean accepts(Object object) {		try {			return object instanceof IMethod && !((IMethod)object).isConstructor();		} catch (JavaModelException e) {			throw new InternalModelException(e);		}	}		public JMethod build(Object object) {		return new MethodImpl((IMethod)object);	}}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id: plugin.xml,v 1.8 2006/03/22 19:45:27 dacostae Exp $
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http:///org/isistan/flabot/mapping/mappingmodel.ecore" 
+       class = "org.isistan.flabot.mapping.mappingmodel.MappingmodelPackage"
+       genModel = "src/org/isistan/flabot/mapping/mapping.genmodel" /> 
+  </extension>
+  <!--extension
+        id="responsibilityMappingToCodeEditionItem"
+        name="Flabot Responsibility Mapping To Code Edition Item"
+        point="org.isistan.flabot.responsibilityEditionTabItem">
+     <tab
+           class="org.isistan.flabot.mapping.editor.ResponsibilityMappingEditionItem"
+           order="200"/>
+  </extension-->
+   <extension
+        id="componentMappingToCodeEditionItem"
+        name="Flabot Component Scope Edition Item"
+        point="org.isistan.flabot.componentEditionTabItem">
+     <tab
+           class="org.isistan.flabot.mapping.editor.ComponentScopeEditionItem"
+           order="500"/>
+  </extension>
+   <extension
+         id="responsibilityMaterializationMappingToCodeEditionItem"
+         name="Flabot Responsibility Materialization Mapping To Code Edition Item"
+         point="org.isistan.flabot.responsibilityMaterializationEditionTabItem">
+      <tab
+            class="org.isistan.flabot.mapping.editor.ResponsibilityMaterializationMappingEditionItem"
+            order="100"/>
+   </extension>
+
+</plugin>
+

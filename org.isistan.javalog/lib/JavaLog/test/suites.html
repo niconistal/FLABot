@@ -1,0 +1,64 @@
+<html>
+<meta Prolog The ISO standard: Author J.P.E. Hodgson >
+<head>
+<title>
+Prolog: Test Suites.
+</title>
+
+<body bgcolor=white>
+<h2>  Project LOCO Prolog Web Pages:</h2>
+<h3>Tests of Conformance to the ISO standard</h3>
+
+This page provides links to suites that test conformance to
+the <a href="http://www.iso.ch">ISO </a> Prolog standard: <strong>ISO/IEC 13211-1</strong>.
+
+In order to be able to run these suites your processor should support the 
+following (standard required) predicates.
+
+<ul>
+<li> <a href="exceptions.html"> Exceptions</a> must be thrown in the standard syntax
+<strong> error(ErrorTerm, ImpDef)</strong>. 
+<li> It must be possible to set a <a href="bips.html#flags">flag</a> so that a call to an 
+unknown predicate throws an error. Normally this is done with the <a href="bips.html#directives"><em>set_prolog_flag/1</em></a>.
+<li> Given the above there must be a mechanism for <a href="bips.html#catch">raising and handling exceptions.</a>. The tests use the control constructs <em> catch/3 </em> and <em> throw/1</em>.  
+If your processor supports exception handling but not in this precise form you can probably adapt 
+things by defining catch/3 and throw/1 to invoke your processors corresponding control constructs.
+</ul>
+
+<h3> The test suites</h3>
+<dl>
+<dt> <a href="http://pauillac.inria.fr/~hodgson/prolog/inriasuite.tar.gz">
+A test suite based on the formal specification</a>
+<dd> This suite is designed to be easily expandable. New tests can be added to the files or new files of tests added. Documentation on the use of the test is in the README file. Emphasis is on finding all the solutions to 
+a given goal.
+<dt> <a href="http://pauillac.inria.fr/~hodgson/prolog/prologsuite.tar.gz">
+A test suite based on the examples in the documentation of the standard</a>
+<dd> This suite is not as susceptible of expansion. It uses different predicates
+to test for success, failure and to catch errors.
+It is organised by clause of the standard. Instructions for its use are in
+the README file.
+</dl>
+
+
+<br><br>
+<hr>
+<author>
+Author: J.P.E. Hodgson <br>
+</author>
+<address>
+Inria Rocquencourt <br>
+78153 Le Chesnay Cedex<br>
+France<br>
+<br>
+Saint Joseph's University<br>
+Philadelphia PA 19131<br>
+USA<br>
+</address>
+<br>
+<br>
+<date>
+Last Changed: 1  March 1999<br>
+</date>
+</body>
+</html>
+

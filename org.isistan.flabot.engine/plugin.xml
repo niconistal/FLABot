@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id: plugin.xml,v 1.15 2006/04/08 01:45:32 franco Exp $
+-->
+
+<plugin>
+   <extension-point id="failureLocatedAction" name="Flabot Engine Failure Located Action" schema="schema/failureLocatedAction.exsd"/>
+      <extension-point id="strategyUIComboBox" name="Strategy UI Combo Box" schema="schema/strategyUIComboBox.exsd"/>
+      <extension-point id="prologStrategyUIComboBox" name="Prolog Strategy UI Combo Box" schema="schema/prologStrategyUIComboBox.exsd"/>
+      <extension-point id="generalLogFilterStrategyUIComboBox" name="General Log Filter Strategy UI Combo Box" schema="schema/generalLogFilterStrategyUIComboBox.exsd"/>
+   <extension
+         point="org.isistan.flabot.ucmEditorContextMenuAction">
+      <action class="org.isistan.flabot.edit.ucmeditor.actions.RunEngineAction"/>
+      <action class="org.isistan.flabot.edit.ucmeditor.actions.ResetAction"/>
+      <action class="org.isistan.flabot.edit.ucmeditor.actions.TreatFailureAction"/>
+      <action
+            class="org.isistan.flabot.edit.ucmeditor.actions.GeneralLogFilterAction">
+      </action>
+      <!--action class="org.isistan.flabot.engine.executionstate.actions.GetResponsibilityNodeStateAction"/-->
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.isistan.flabot.engine.viewcategory"
+            class="org.isistan.flabot.edit.sequenceview.SequenceView"
+            icon="icons/flabot.gif"
+            id="org.isistan.flabot.engine.sequenceview"
+            name="Sequence View"/>
+      <category
+            id="org.isistan.flabot.engine.viewcategory"
+            name="FLABot"/>
+      <view
+            category="org.isistan.flabot.engine.viewcategory"
+            class="org.isistan.flabot.edit.mapview.MapView"
+            icon="icons/flabot.gif"
+            id="org.isistan.flabot.engine.mapview"
+            name="Map View"/>
+      <view
+            category="org.isistan.flabot.engine.viewcategory"
+            class="org.isistan.flabot.edit.controlview.ControlView"
+            icon="icons/flabot.gif"
+            id="org.isistan.flabot.engine.controlview"
+            name="Control View"/>
+   </extension>
+   <extension
+         id="org.isistan.flabot.engine.executionstate.contextprovider.providers"
+         name="Flabot Engine Context Providers"
+         point="org.isistan.flabot.launcher.contextProvider">
+      <provider
+            class="org.isistan.flabot.engine.executionstate.contextprovider.LogStateDeterminationContextProvider"
+            id="org.isistan.flabot.engine.executionstate.contextprovider.logStateDeterminationContextProvider"
+            name="Flabot Log State Determination Context Provider"
+            tabClass="org.isistan.flabot.engine.executionstate.contextprovider.FlabotFileContextProviderConfigurationTab"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.isistan.flabot.engine.EnginePerspectiveFactory"
+            icon="icons/flabot.gif"
+            id="org.isistan.flabot.engine.perspective"
+            name="FLABot Engine"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="org.isistan.flabot.engine.executionstate.ExecutionstatePackage"
+            uri="http:///org/isistan/flabot/engine/executionstate.ecore"/>
+      <package
+            class="org.isistan.flabot.executionmodel.ExecutionmodelPackage"
+            uri="http:///org/isistan/flabot/executionmodel.ecore"/>
+   </extension>
+   <extension
+         point="org.isistan.flabot.responsibilityEditionTabItem">
+      <tab
+            class="org.isistan.flabot.engine.executionstate.dialogs.StateDeterminationStrategyEditionItem"
+            order="300"/>
+   </extension>
+   <extension
+         point="org.isistan.flabot.conditionEventEditionTabItem">
+      <tab
+            class="org.isistan.flabot.engine.executionstate.dialogs.event.ConditionEventStrategyEditionItem"
+            order="200"/>
+   </extension>
+
+
+</plugin>
+

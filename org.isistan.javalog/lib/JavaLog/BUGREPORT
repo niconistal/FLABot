@@ -1,0 +1,65 @@
+$Id: BUGREPORT,v 1.2 2002/02/22 17:35:22 azunino Exp $
+
+When reporting a bug, please make sure you have run through this checklist:
+- What version of JavaLog you are running?
+  Type ... at the command line to find out.
+  
+- Have you correctly installed JavaLog?
+  Verify your CLASSPATH and packages on which JavaLog depends (including
+  version numbers).
+  
+- Are you running the latest released version of JavaLog?
+  See http://www.exa.unicen.edu.ar/~azunino/javalog.html
+  
+- Are you sure what you have is a bug?
+  A significant number of the bug reports we get turn
+  out to be documented features in JavaLog.  Make sure the
+  behavior you are witnessing doesn't fall under that
+  category, by glancing through the documentation and .pl files that
+  come with JavaLog (we'll admit this is no mean task,
+  given the sheer volume of it all, but at least have a
+  look at the files that seem relevant).
+  
+- Do you have a proper test case?
+  The easier it is to reproduce your bug, the more
+  likely it will be fixed, because if no one can dupli­
+  cate the problem, no one can fix it.  A good test case
+  has most of these attributes: fewest possible number 
+  of lines; few dependencies on external commands, mod­
+  ules, or libraries; runs on most platforms unimpeded;
+  and is self-documenting.
+  
+  Remember also to include the exact error messages, if
+  any.  "JavaLog complained something" is not an exact
+  error message.
+  
+- Can you describe the bug in plain English?
+  The easier it is to understand a reproducible bug, the
+  more likely it will be fixed.  Anything you can pro­
+  vide by way of insight into the problem helps a great
+  deal.  In other words, try to analyze the problem (to
+  the extent you can) and report your discoveries.
+  
+- Can you fix the bug yourself?
+  A bug report which includes a patch to fix it will
+  almost definitely be fixed.  Use the diff' program to
+  generate your patches (diff' is being maintained by
+  the GNU folks as part of the diffutils package, so you
+  should be able to get it from any of the GNU software
+  repositories).  If you do submit a patch, the cool-
+  dude counter at xxxx@exa.unicen.edu.ar will register you as
+  a savior of the world.  Your patch may be returned
+  with requests for changes, or requests for more
+  detailed explanations about your fix.
+  
+  Here are some clues for creating quality patches: Use
+  the -c or -u switches to the diff program (to create a
+  so-called context or unified diff).  Make sure the
+  patch is not reversed (the first argument to diff is
+  typically the original file, the second argument your
+  changed file).  Make sure you test your patch by
+  applying it with the patch' program before you send
+  it on its way.  Try to follow the same style as the
+  code you are trying to patch.  Make sure your patch 
+  really does work.
+  

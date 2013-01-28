@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <servlet>
+    <servlet-name>GetIP</servlet-name>
+    <servlet-class>JavaLog.mobility.GetIP</servlet-class>
+  </servlet>
+
+    <servlet>
+    <servlet-name>MARlet</servlet-name>
+    <servlet-class>JavaLog.mobility.MARlet</servlet-class>
+    <init-param>
+        <param-name>portTo</param-name>
+        <param-value>8081</param-value>
+    </init-param>
+    <init-param>
+        <param-name>pathString</param-name>
+        <param-value>/servlet/MARlet</param-value>
+    </init-param>
+    <!-- The following parameters are used when running two or more virtual
+    webservers on the same multi-address host. -->
+    <init-param>
+        <param-name>virtualHosts</param-name>
+        <param-value>ale2 ale</param-value>
+    </init-param>
+    <!-- The following option runs this servlet at servlet engine initialization. 
+    It is needed by Movilog's viewer and it does not interfere with Movilog's 
+    normal behaviour. It can be removed only if you aren't going to use viewing 
+    capabilities -->
+    <load-on-startup> 10 </load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>MARlet</servlet-name>
+    <url-pattern>/servlet/MARlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>GetIP</servlet-name>
+    <url-pattern>/servlet/GetIP</url-pattern>
+  </servlet-mapping>
+
+    <session-config>
+    <session-timeout>
+            30
+        </session-timeout>
+  </session-config>
+  <welcome-file-list>
+    <welcome-file>
+            index.jsp
+        </welcome-file>
+    <welcome-file>
+            index.html
+        </welcome-file>
+    <welcome-file>
+            index.htm
+        </welcome-file>
+  </welcome-file-list>
+</web-app>

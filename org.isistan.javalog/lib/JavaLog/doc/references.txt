@@ -1,0 +1,27 @@
+Links related to Logic Programming/Theorem Prover
+  http://pascal.seg.kobe-u.ac.jp/~banbara/lp/
+
+Object-Oriented Language: Prolog
+  http://www.objenv.com/cetus/oo_prolog.html
+
+Programming Languages for the Java Virtual Machine
+  http://grunge.cs.tu-berlin.de/~tolk/vmlanguages.html
+
+On Logic Programming, Artificial Intelligence, Software Agents, and the Web
+  http://www.cs.mu.oz.au/~swloke/res1.html
+
+Links2Go: Prolog
+  http://www.links2go.com/topic/Prolog
+
+Kobe University Prolog Home Page
+  http://bach.seg.kobe-u.ac.jp/prolog/
+
+Eric Villemonte de la Clergerie (ATOLL)'s Bookmarks
+  http://pauillac.inria.fr/~clerger/bookmarks.html
+
+Marcel Turcotte - En vrac
+  http://bonsai.lif.icnet.uk/bmm/people/turcotte/bibl.html
+
+Hana Rudova's Bookmarks
+  http://www.fi.muni.cz/~hanka/bookmarks.html
+

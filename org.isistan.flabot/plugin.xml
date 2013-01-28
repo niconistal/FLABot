@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension-point id="ucmEditorContextMenuAction" name="Flabot UCM Editor Context Menu Action" schema="schema/ucmEditorContextMenuAction.exsd"/>
+   <extension-point id="componentDiagramEditorContextMenuAction" name="Flabot Component Diagram Editor Context Menu Action" schema="schema/componentDiagramEditorContextMenuAction.exsd"/>
+   <extension-point id="responsibilityEditionTabItem" name="Flabot Responsibility Edition Tab Item" schema="schema/responsibilityEditionTabItem.exsd"/>
+   <extension-point id="responsibilityMaterializationEditionTabItem" name="Flabot Responsibility Materialization Edition Tab Item" schema="schema/responsibilityMaterializationEditionTabItem.exsd"/>
+   <extension-point id="responsibilityNodeEditionTabItem" name="Flabot Responsibility Node Edition Tab Item" schema="schema/responsibilityNodeEditionTabItem.exsd"/>
+   <extension-point id="responsibilityNodeVisualEditionTabItem" name="Flabot Responsibility Node Visual Edition Tab Item" schema="schema/responsibilityNodeVisualEditionTabItem.exsd"/>
+   <extension-point id="componentEditionTabItem" name="Flabot Component Edition Tab Item" schema="schema/componentEditionTabItem.exsd"/>
+   <extension-point id="componentVisualEditionTabItem" name="Flabot Component Node Visual Edition Tab Item" schema="schema/componentVisualEditionTabItem.exsd"/>
+   <extension-point id="conditionEventEditionTabItem" name="Flabiot Condition Event Edition Tab Item" schema="schema/conditionEventEditionTabItem.exsd"/>
+   <extension-point id="conditionedStubResponsibilityNodeEditionTabItem" name="Flabot Conditioned Stub Responsibility Node Edition Tab Item" schema="schema/conditionedStubResponsibilityNodeEditionTabItem.exsd"/>
+   
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            class="org.isistan.flabot.edit.multipage.FlabotMultiPageEditor"
+            contributorClass="org.isistan.flabot.edit.multipage.FlabotMultiPageEditorContributor"
+            extensions="flabot"
+            icon="icons/flabot.gif"
+            id="org.isistan.flabot.edit.multipage.FlabotMultiPageEditor"
+            name="FLABot Multi-page Editor"/>
+   </extension>
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.isistan.flabot"
+            name="FLABot"/>
+      <wizard
+            category="org.isistan.flabot"
+            class="org.isistan.flabot.edit.wizards.FlabotNewWizard"
+            icon="icons/flabot.gif"
+            id="org.isistan.flabot.wizards.FlabotNewWizard"
+            name="FLABot file">
+      </wizard>
+      <wizard
+            category="org.isistan.flabot"
+            class="org.isistan.flabot.edit.wizards.FlabotTemplateWizard"
+            icon="icons/flabot.gif"
+            id="org.isistan.flabot.wizards.FlabotTemplateWizard"
+            name="FLABot templates"/>
+   </extension>
+ <extension
+       point="org.eclipse.help.toc">
+    <toc
+          file="resource/help/toc.xml"
+          primary="true"/>
+    <toc file="resource/help/tocinstallation.xml"/>
+    <toc file="resource/help/tocintroduction.xml"/>
+    <toc file="resource/help/tocusingtheplugin.xml"/>
+ </extension>
+ <extension
+       point="org.eclipse.ui.helpSupport">
+ </extension>
+ <extension
+       point="org.eclipse.ui.perspectives">
+    <perspective
+          class="org.isistan.flabot.edit.multipage.EditorPerspectiveFactory"
+          icon="icons/flabot.gif"
+          id="org.isistan.flabot.editor.perspective"
+          name="FLABot Editor"/>
+ </extension>
+ <extension
+       id="org.isistan.flabot.mainResponsibilityEditionTabItem"
+       name="Flabot Main Responsibility Edition Tab Item"
+       point="org.isistan.flabot.responsibilityEditionTabItem">
+    <tab
+          class="org.isistan.flabot.edit.componenteditor.dialogs.responsibility.editionitem.MainResponsibilityEditionItem"
+          order="100"/>
+ </extension>
+ <extension
+       point="org.isistan.flabot.responsibilityNodeEditionTabItem">
+    <tab
+          class="org.isistan.flabot.edit.ucmeditor.dialogs.responsibilitynode.editionitem.ConditionEditionItem"
+          order="300"/>
+    <tab
+          class="org.isistan.flabot.edit.ucmeditor.dialogs.responsibilitynode.editionitem.ResponsibilityEditionItemContainer"
+          order="100"/>
+    <tab
+          class="org.isistan.flabot.edit.ucmeditor.dialogs.responsibilitynode.editionitem.ResponsibilityMaterializationEditionItemContainer"
+          order="200"/>
+ </extension>
+ <extension
+       point="org.isistan.flabot.responsibilityNodeVisualEditionTabItem">
+    <tab
+          class="org.isistan.flabot.edit.ucmeditor.dialogs.responsibilitynode.editionitem.MainResponsibilityNodeVisualEditionItem"
+          order="100"/>
+ </extension>
+ <extension
+       point="org.isistan.flabot.componentEditionTabItem">
+    <tab
+          class="org.isistan.flabot.edit.componenteditor.dialogs.component.editionitem.MainComponentEditionItem"
+          order="100"/>
+    <tab
+          class="org.isistan.flabot.edit.componenteditor.dialogs.component.editionitem.PortAndInterfacesEditionItem"
+          order="200"/>
+    <tab
+          class="org.isistan.flabot.edit.componenteditor.dialogs.PropertyEditionItem"
+          order="300"/>
+ </extension>
+ <extension
+       point="org.isistan.flabot.componentVisualEditionTabItem">
+    <tab class="org.isistan.flabot.edit.componenteditor.dialogs.component.editionitem.VisualizationComponentEditionItem"
+         order="100"/>
+ </extension>
+ <extension
+       point="org.isistan.flabot.conditionEventEditionTabItem">
+    <tab
+          class="org.isistan.flabot.edit.ucmeditor.dialogs.event.editionitem.MainConditionEventEditionItem"
+          order="100"/>
+ </extension>
+ <extension
+       point="org.isistan.flabot.conditionedStubResponsibilityNodeEditionTabItem">
+    <tab
+          class="org.isistan.flabot.edit.ucmeditor.dialogs.responsibilitynode.editionitem.ConditionedStubResponsibilityEditionItemContainer"
+          order="100">
+    </tab>
+    <tab
+          class="org.isistan.flabot.edit.ucmeditor.dialogs.responsibilitynode.editionitem.ConditionedStubConditionEditionItem"
+          order="200">
+    </tab>
+ </extension>
+</plugin>

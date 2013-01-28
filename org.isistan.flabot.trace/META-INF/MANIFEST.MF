@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FLABot Trace Plug-in
+Bundle-SymbolicName: org.isistan.flabot.trace;singleton:=true
+Bundle-Version: 0.1.1
+Bundle-ClassPath: lib/trace.jar
+Bundle-Vendor: www.exa.unicen.edu.ar/isistan/
+Bundle-Localization: plugin
+Export-Package: org.isistan.flabot.trace,
+ org.isistan.flabot.trace.config,
+ org.isistan.flabot.trace.config.impl,
+ org.isistan.flabot.trace.config.util,
+ org.isistan.flabot.trace.log,
+ org.isistan.flabot.trace.log.impl,
+ org.isistan.flabot.trace.log.tagquery,
+ org.isistan.flabot.trace.log.util
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.swt,
+ org.eclipse.jface,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.isistan.flabot.gauge,
+ org.isistan.flabot.javamodel,
+ org.isistan.flabot.util

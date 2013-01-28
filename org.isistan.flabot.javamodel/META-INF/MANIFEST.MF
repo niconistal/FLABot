@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FLABot Java Model Plug-in
+Bundle-SymbolicName: org.isistan.flabot.javamodel
+Bundle-Version: 0.1.1
+Bundle-ClassPath: lib/javamodel.jar
+Bundle-Vendor: www.exa.unicen.edu.ar/isistan/
+Bundle-Localization: plugin
+Export-Package: org.isistan.flabot.javamodel
+Require-Bundle: org.isistan.flabot.util

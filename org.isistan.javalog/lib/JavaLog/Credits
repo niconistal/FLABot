@@ -1,0 +1,14 @@
+JavaLog wouldn't be possible in its current form without the help of
+the following people.  Thanks a lot, guys.
+
+Analía Amandi <amandi@exa.unicen.edu.ar>: Our Advisor. Thanks!!!!!
+Marcelo Campo <mcampo@exa.unicen.edu.ar>: Suggestions about parsing.
+Rick Rutt <RRUTT@delphi.com>: Bug fixes.
+1998 Exploratory Programming course at UNICEN <http://exa.unicen.edu.ar>: beta
+  test. Bug fixes.
+Steffen Moeller <moeller@ebi.ac.uk>
+Cristian Mateos <cmateos@exa.unicen.edu.ar>: PlNumber, PlFloat, clause, 
+	reconsult and Built-in redesign
+Diego Testa <dtesta@exa.unicen.edu.ar>: PlNumber, PlFloat, clause, 
+	reconsult and Built-in redesign
+Alfredo Teyseyre <teyseyre@exa.unicen.edu.ar>: floatv(X), bug fixes

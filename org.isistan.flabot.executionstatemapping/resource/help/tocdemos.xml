@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Demos" link_to="resource/help/toc.xml#demos"> 
+	<topic label="Create a method execution condition"  href="resource/help/html/demos/MethodExecutionCondition_demo/MethodExecutionCondition_demo.html"/>
+	<topic label="Create a general execution condition"  href="resource/help/html/demos/GeneralExecutionCondition_demo/GeneralExecutionCondition_demo.html"/> 
+	<topic label="Create a state diagram"  href="resource/help/html/demos/StateDiagramExample_demo/StateDiagramExample_demo.html"/>
+	<topic label="Assign and configure a condition execution strategy"  href="resource/help/html/demos/StateDeterminationStrategy_demo/StateDeterminationStrategy_demo.html"/>
+</toc>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+  name="Javassist Library Plug-in"
+  id="org.isistan.flabot.javassist"
+  version="3.1.2"  
+  provider-name="www.csg.is.titech.ac.jp/~chiba/javassist/">
+   <runtime>
+      <library name="lib/javassist.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+
+</plugin>

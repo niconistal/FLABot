@@ -1,0 +1,66 @@
+//-*-jde-*-
+import JavaLog.*;
+
+public class Test {
+  private Brain brain = null;
+
+  public void nada() {
+    Person p1=null, p2=null, p3=null, p4=null;
+    //BRAIN=brain
+    {{  madre(#p3#,#p2#).
+    	madre(#p4#,#p2#).
+    	padre(#p3#,#p1#).
+    	padre(#p4#,#p1#).}};
+  }
+  
+  public Test() {
+      brain = new Brain();
+      brain.trace( false );
+  }
+
+  public void run()
+    throws PlException {
+    Person.prolog = brain;
+    boolean prologResult = false;
+
+    Person p1 = new Person( "Bertrand", 70, true );
+    Person p2 = new Person( "Elen", 65, false );
+    Person p3 = new Person( "Linus", 28, true );
+    Person p4 = new Person( "Alan", 35, true );
+    {{ padre(#p1#, pedro).
+       padre(martin, pedro).
+       madre(martin, estela).
+       madre(lucy, estela).}};
+    ?-listing(#p2#,[madre,padre]).;
+
+     ?-consult('../test.pl').;
+//     System.out.println( "?- hermano('Linus',Y)" );
+//     ?-hermano('Linus',Y).
+//     System.out.println( prolog.goal().state() );
+//     System.out.println( "?- padre(aPerson(Linus...),Y)" );
+//     ?-padre(#p3#,Y).
+//     System.out.println( prolog.goal().state() );
+//     System.out.println( "?- padre('Alan',Y)" );
+//     ?-padre('Alan',Y).
+//     System.out.println( prolog.goal().state() );
+//     System.out.println( "?- madre(aPerson(Linus...),Y)" );
+//     ?-madre(#p3#,Y).
+//     System.out.println( prolog.goal().state() );
+//     System.out.println( "?- madre('Alan',Y)" );
+//     ?-madre('Alan',Y).
+//     System.out.println( prolog.goal().state() );
+    //    while( prolog.redo() ) {
+    //      System.out.println( prolog.goal().state() );
+    //    }
+  }
+
+  final public static void main( String args[] ) 
+    throws Exception {
+    Test aTest = new Test();
+    aTest.run();
+  }
+
+  public java.lang.Object[] aMethod1() {
+    return null;
+  }
+}

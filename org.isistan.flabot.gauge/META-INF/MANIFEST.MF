@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FLABot Gauge Plug-in
+Bundle-SymbolicName: org.isistan.flabot.gauge
+Bundle-Version: 0.1.1
+Bundle-ClassPath: lib/gauge.jar
+Bundle-Activator: org.isistan.flabot.gauge.GaugePlugin
+Bundle-Vendor: www.exa.unicen.edu.ar/isistan/
+Bundle-Localization: plugin
+Export-Package: org.isistan.flabot.gauge
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.isistan.flabot.util,
+ org.isistan.flabot.javamodel
+Eclipse-AutoStart: true

@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FLABot Java Model for JDT Plug-in
+Bundle-SymbolicName: org.isistan.flabot.javamodel.jdt
+Bundle-Version: 0.1.1
+Bundle-ClassPath: lib/javamodel.jdt.jar
+Bundle-Vendor: www.exa.unicen.edu.ar/isistan/
+Bundle-Localization: plugin
+Export-Package: org.isistan.flabot.javamodel.jdt,
+ org.isistan.flabot.javamodel.jdt.ast,
+ org.isistan.flabot.javamodel.jdt.workspace
+Require-Bundle: org.isistan.flabot.javamodel,
+ org.eclipse.jdt.core,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt,
+ org.eclipse.jdt.ui,
+ org.eclipse.core.resources,
+ org.isistan.flabot.util

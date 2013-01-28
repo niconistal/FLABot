@@ -1,0 +1,52 @@
+<installation version="1.0">
+    <info>
+        <appname>JavaLog</appname>
+        <appversion>1.4</appversion>
+        <authors>
+            <author email="azunino@exa.unicen.edu.ar" name="Alejandro Zunino"/>
+            <author email="amandi@exa.unicen.edu.ar" name="Anal&#xed;a Amandi"/>
+        </authors>
+        <url/>
+    </info>
+    <guiprefs height="480" resizable="no" width="640"/>
+    <locale>
+        <langpack iso3="eng"/>
+        <langpack iso3="spa"/>
+        <langpack iso3="ita"/>
+        <langpack iso3="por"/>
+        <langpack iso3="pol"/>
+        <langpack iso3="cat"/>
+        <langpack iso3="hun"/>
+        <langpack iso3="ukr"/>
+        <langpack iso3="fra"/>
+        <langpack iso3="ned"/>
+        <langpack iso3="swe"/>
+        <langpack iso3="svk"/>
+        <langpack iso3="fin"/>
+        <langpack iso3="rus"/>
+        <langpack iso3="jpn"/>
+        <langpack iso3="deu"/>
+    </locale>
+    <resources/>
+    <panels>
+        <panel classname="HelloPanel"/>
+        <panel classname="TargetPanel"/>
+        <panel classname="InstallPanel"/>
+        <panel classname="FinishPanel"/>
+    </panels>
+    <packs>
+        <pack name="JavaLog" required="yes">
+            <description>JavaLog binary distribution</description>
+            <fileset targetdir="$INSTALL_PATH" dir="/home/azunino/JavaLog">
+                <include name="**"/>
+                <exclude name="src/**"/>
+            </fileset>
+            <parsable targetfile="$INSTALL_PATH/JavaLog.sh"/>
+            <parsable targetfile="$INSTALL_PATH/ClassPath.sh"/>
+            <parsable targetfile="$INSTALL_PATH/JavaLog.bat"/>
+            <parsable targetfile="$INSTALL_PATH/ClassPath.bat"/>
+            <executable targetfile="$INSTALL_PATH/JavaLog.sh"/>
+            <executable targetfile="$INSTALL_PATH/ClassPath.sh"/>
+        </pack>
+    </packs>
+</installation>

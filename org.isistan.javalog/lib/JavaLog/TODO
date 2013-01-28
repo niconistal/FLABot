@@ -1,0 +1,56 @@
+$Id: TODO,v 1.9 2002/05/10 19:20:32 azunino Exp $
+
+Features:
+--------
+
+- a BrainLet should be (optionally) notified of events (move, create,
+...)
+WORK IN PROGRESS - (semi)atomatic CLASSPATH
+WORK IN PROGRESS - difference lists
+  see classes/JavaLog/init/DiffLists.pl
+WORK IN PROGRESS - adjust operators' priority to be ISO Prolog compatible.
+- :- body. should be parsed and executed. This might be a bit
+  difficult because it is necesary to define ':-' as an operator fx, but ':-'
+  is already defined and PlOpTable uses a structure that does not support
+  multiple values associated to a single key
+- C style comments /* ... */
+- JavaLog -v should display the version number
+- Eclipse (www.eclipse.org) plugin
+- NetBeans plugin
+WORK IN PROGRESS - JBuilder plugin
+  See Developing OpenTools Version 6. Ch. 22, Adding a file node type and a viewer
+WORK IN PROGRESS - JEdit plugin:
+  syntax highlight (jEdit User's guide, Ch. 9, Writing Edit Modes)
+WORK IN PROGRESS - Write an ANT task for building javalog source files
+  http://jakarta.apache.org/ant/index.html
+  http://jakarta.apache.org/ant/manual/develop.html
+- PlList.toStruct should be rewritten as a visitor
+
+Bugs:
+----
+4.0 + 1 returns an integer -> it should return a float
+call((write(a),write(b)) fails
+DONE - listToTerm (TermPredicates.listToSTruct) produces an exeption with 
+	A1=3,F=f,length(R, A1),!,listToTerm( [F|R], T ).
+DONE - copy_term is broken: copy_term(call(A,B,C), R).
+DONE - JavaLog/classpath/ClassPath
+	* adds \Users\Cristian.... to the system CLASSPATH
+- toString2 should take into account operators
+- write('  ') --> '  '
+- examples/pl/reducer.pl
+DONE - examples/pl/nand.pl
+	exp -> 'exp'
+- examples/pl/meta_qsort.pl
+DONE - examples/pl/ham.pl
+	connect -> connect_
+- examples/pl/boyer.pl
+DONE - examples/pl/chat_parser.pl
+	not, is, ... quoted
+WORK IN PROGRESS - clean input/output implementation... 
+PARTIALLY DONE - '!' - write should strip ' ' and \n
+DONE - =.. is broken
+DONE - functor has some minor problems: 
+	functor(foo(a),fo,1)
+	functor(X,1.1,0).
+DONE - length(L,1.1) produces stack overflow. This occurs in most Prolog
+	implementations

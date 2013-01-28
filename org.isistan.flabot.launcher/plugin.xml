@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension-point id="contextProvider" name="Flabot Launcher Context Provider" schema="schema/contextProvider.exsd"/>
+   <extension-point id="collectionLauncher" name="Flabot Launcher Collection Launcher" schema="schema/collectionLauncher.exsd"/>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http:///org/isistan/flabot/launcher/filtermodel.ecore" 
+       class = "org.isistan.flabot.launcher.filter.filtermodel.FiltermodelPackage"
+       genModel = "src/org/isistan/flabot/launcher/launchermodel.genmodel" /> 
+  </extension>
+  
+	<extension
+		point="org.eclipse.debug.core.launchConfigurationTypes">
+		
+		<launchConfigurationType
+        delegate="org.isistan.flabot.launcher.delegate.FlabotLauncherConfigurationDelegate"
+        id="org.isistan.flabot.launcher.flabotLaunchConfigurationType"
+        modes="run, debug"
+        name="Flabot Collecting Session"
+        public="true"
+        sourceLocatorId="org.eclipse.jdt.launching.sourceLocator.JavaSourceLookupDirector"
+        sourcePathComputerId="org.eclipse.jdt.launching.sourceLookup.javaSourcePathComputer">
+		</launchConfigurationType>
+	</extension>
+
+	<extension
+		point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+		<launchConfigurationTabGroup
+	        class="org.isistan.flabot.launcher.tabs.FlabotLauncherTabGroup"
+        	id="org.isistan.flabot.launcher.flabotLauncherTabGroup"
+	        type="org.isistan.flabot.launcher.flabotLaunchConfigurationType">
+			<launchMode
+				mode="debug"
+				perspective="org.eclipse.debug.ui.DebugPerspective"
+				description="Debug Flabot Local Java Application">
+			</launchMode>
+			<launchMode
+				mode="run"
+				description="Run Flabot Local Java Application">
+			</launchMode>
+		</launchConfigurationTabGroup>
+	
+	</extension>
+ <extension
+       id="org.isistan.flabot.launcher.logFilterItem"
+       name="Flabot Log Filter Item"
+       point="org.isistan.flabot.responsibilityEditionTabItem">
+    <tab
+          class="org.isistan.flabot.launcher.filter.LogFilterEditionItem"
+          order="400"/>
+ </extension>
+ <extension
+       point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+    <launchConfigurationTypeImage
+          configTypeID="org.isistan.flabot.launcher.flabotLaunchConfigurationType"
+          icon="resource/icon/flabotCollectingSessionIcon.gif"
+          id="org.isistan.flabot.launcher.flabotLaunchConfigurationTypeImage"/>
+ </extension>
+</plugin>

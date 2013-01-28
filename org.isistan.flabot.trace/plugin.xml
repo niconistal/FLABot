@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id: plugin.xml,v 1.1 2006/01/27 19:46:05 dacostae Exp $
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http:///org/isistan/flabot/trace/config.ecore" 
+       class = "org.isistan.flabot.trace.config.ConfigPackage"
+       genModel = "src/org/isistan/flabot/trace/trace.genmodel" /> 
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http:///org/isistan/flabot/trace/log.ecore" 
+       class = "org.isistan.flabot.trace.log.LogPackage"
+       genModel = "src/org/isistan/flabot/trace/trace.genmodel" /> 
+  </extension>
+
+</plugin>
+

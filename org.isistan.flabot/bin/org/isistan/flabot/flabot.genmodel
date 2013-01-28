@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.isistan.flabot/src"
+    modelPluginID="org.isistan.flabot" modelName="Flabot" importerID="org.eclipse.emf.importer.java">
+  <foreignModel>@model</foreignModel>
+  <genPackages prefix="Editormodel" basePackage="org.isistan.flabot.edit" disposableProviderFactory="true"
+      ecorePackage="editormodel.ecore#/">
+    <genClasses image="false" ecoreClass="editormodel.ecore#//Diagram">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//Diagram/coreModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//Diagram/notes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//Diagram/children"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//Diagram/folder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//Diagram/gridEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//Diagram/snapToGeometryEnabled"/>
+    </genClasses>
+    <genClasses ecoreClass="editormodel.ecore#//FlabotFileModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//FlabotFileModel/coreModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//FlabotFileModel/diagrams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//FlabotFileModel/importedFiles"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//FlabotFileModel/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//FlabotFileModel/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//FlabotFileModel/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//FlabotFileModel/provider"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//FlabotFileModel/folder"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//FlabotFileModel/openDiagrams"/>
+    </genClasses>
+    <genClasses ecoreClass="editormodel.ecore#//VisualModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//VisualModel/children"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//VisualModel/parent"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//VisualModel/semanticModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//VisualModel/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//VisualModel/size"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//VisualModel/diagram"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//VisualModel/backgroundColor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//VisualModel/foregroundColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//VisualModel/lineStyle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//VisualModel/lineWidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//VisualModel/detailLevel"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="editormodel.ecore#//Adapter"/>
+    <genClasses ecoreClass="editormodel.ecore#//ConnectionBendpoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//ConnectionBendpoint/firstRelativeDimension"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//ConnectionBendpoint/secondRelativeDimension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//ConnectionBendpoint/weight"/>
+    </genClasses>
+    <genClasses ecoreClass="editormodel.ecore#//ConnectionVisualModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//ConnectionVisualModel/sourceTerminal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//ConnectionVisualModel/targetTerminal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//ConnectionVisualModel/bendpoints"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//ConnectionVisualModel/source"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//ConnectionVisualModel/target"/>
+    </genClasses>
+    <genClasses ecoreClass="editormodel.ecore#//NodeVisualModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//NodeVisualModel/sourceConnections"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//NodeVisualModel/targetConnections"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//NodeVisualModel/rotation"/>
+    </genClasses>
+    <genClasses ecoreClass="editormodel.ecore#//Folder">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//Folder/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//Folder/folders"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//Folder/diagrams"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//Folder/parent"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//Folder/fileModel"/>
+    </genClasses>
+    <genClasses ecoreClass="editormodel.ecore#//Color">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//Color/red"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//Color/green"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//Color/blue"/>
+    </genClasses>
+    <genClasses ecoreClass="editormodel.ecore#//Dimension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//Dimension/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//Dimension/height"/>
+    </genClasses>
+    <genClasses ecoreClass="editormodel.ecore#//Point">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//Point/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//Point/y"/>
+    </genClasses>
+    <genClasses ecoreClass="editormodel.ecore#//EStringToEObjectMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//EStringToEObjectMapEntry/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editormodel.ecore#//EStringToEObjectMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="editormodel.ecore#//VisualDiagramJump">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//VisualDiagramJump/sourceDiagram"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//VisualDiagramJump/targetDiagram"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference editormodel.ecore#//VisualDiagramJump/targetVisualNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editormodel.ecore#//VisualDiagramJump/to"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Componentmodel" basePackage="org.isistan.flabot.edit" disposableProviderFactory="true"
+      ecorePackage="componentmodel.ecore#/">
+    <genClasses ecoreClass="componentmodel.ecore#//ComponentDiagram"/>
+    <genClasses image="false" ecoreClass="componentmodel.ecore#//Adapter"/>
+  </genPackages>
+  <genPackages prefix="Ucmmodel" basePackage="org.isistan.flabot.edit" disposableProviderFactory="true"
+      ecorePackage="ucmmodel.ecore#/">
+    <genDataTypes ecoreDataType="ucmmodel.ecore#//Notifier"/>
+    <genClasses ecoreClass="ucmmodel.ecore#//UCMDiagram">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference ucmmodel.ecore#//UCMDiagram/map"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ucmmodel.ecore#//Adapter"/>
+  </genPackages>
+  <genPackages prefix="Coremodel" basePackage="org.isistan.flabot" disposableProviderFactory="true"
+      ecorePackage="coremodel.ecore#/">
+    <genEnums ecoreEnum="coremodel.ecore#//RelationshipDirection">
+      <genEnumLiterals ecoreEnumLiteral="coremodel.ecore#//RelationshipDirection/Unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="coremodel.ecore#//RelationshipDirection/Source"/>
+      <genEnumLiterals ecoreEnumLiteral="coremodel.ecore#//RelationshipDirection/Target"/>
+      <genEnumLiterals ecoreEnumLiteral="coremodel.ecore#//RelationshipDirection/Bidirectional"/>
+    </genEnums>
+    <genClasses ecoreClass="coremodel.ecore#//BehavioralFeatureModel"/>
+    <genClasses ecoreClass="coremodel.ecore#//ComponentModel">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//ComponentModel/features"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//ComponentModel/ownedPorts"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//ComponentModel/coreModel"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//CoreModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//CoreModel/components"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//CoreModel/responsibilities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//CoreModel/useCaseMaps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//CoreModel/interfaceLinks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//CoreModel/relationships"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//CoreModel/stereotypes"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//CoreModel/file"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//CoreModel/families"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//CoreModel/architecturalUseCaseMaps"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//CoreModel/functionalUseCaseMaps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//CoreModel/events"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//CoreModel/stubs"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//FeatureModel">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//FeatureModel/components"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//InterfaceModel">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//InterfaceModel/port"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//NamedElementModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//NamedElementModel/name"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//PortModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//PortModel/provideds"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//PortModel/requireds"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//PortModel/component"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//Responsibility">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//Responsibility/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//Responsibility/preconditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//Responsibility/postconditions"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Responsibility/coreModel"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//UseCaseMap">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//UseCaseMap/paths"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//UseCaseMap/componentRoles"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//UseCaseMap/coreModel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//UseCaseMap/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//UseCaseMap/levelInfo"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//Path">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//Path/nodes"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Path/endNodes"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Path/startNodes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="coremodel.ecore#//PathNode">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//PathNode/path"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//PathNode/previous"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//PathNode/next"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//InterfaceLink">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//InterfaceLink/source"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//InterfaceLink/target"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//PropertyElementModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//PropertyElementModel/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//Property/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//Property/value"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//Relationship">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Relationship/source"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Relationship/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//Relationship/direction"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//ComponentRole">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//ComponentRole/component"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//ComponentRole/map"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//ComponentRole/abstractInfo"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="coremodel.ecore#//Adapter"/>
+    <genClasses ecoreClass="coremodel.ecore#//ForkNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//ForkNode/forkType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//ForkNode/conditions"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//SimplePathNode">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//SimplePathNode/map"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//Stereotype"/>
+    <genClasses ecoreClass="coremodel.ecore#//StereotypedElementModel">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//StereotypedElementModel/stereotype"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//ResponsibilityNode">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//ResponsibilityNode/responsibility"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//ResponsibilityNode/role"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//Condition/value"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Condition/useCaseMap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Condition/event"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Condition/family"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Condition/sourceResponsibility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//Condition/type"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Condition/dependencyResponsibility"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//Note">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//Note/note"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Note/targets"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//NoteElementModel">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//NoteElementModel/notes"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//Family">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//Family/familyElement"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Family/associatedResponsibilities"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Family/architecturalUseCaseMaps"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//Family/functionalUseCaseMaps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//Family/events"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//FamilyElement">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//FamilyElement/useCaseMap"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//FamilyElement/functionalComponent"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//FamilyElement/architecturalComponent"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="coremodel.ecore#//InterfacePrologCode"/>
+    <genClasses ecoreClass="coremodel.ecore#//JoinNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//JoinNode/joinType"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//Registrable"/>
+    <genClasses ecoreClass="coremodel.ecore#//ResponsibilityRegistry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//ResponsibilityRegistry/responsibilityBasedRegistry"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//ResponsibilityRegistry/componentBasedRegistry"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//ResponsibilityRegistry/roleBasedRegistry"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//ResponsibilityToRegistrableMapEntry">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//ResponsibilityToRegistrableMapEntry/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//ResponsibilityToRegistrableMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//ComponentToMapMapEntry">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//ComponentToMapMapEntry/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//ComponentToMapMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//RoleToMapMapEntry">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//RoleToMapMapEntry/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//RoleToMapMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//StubNode">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//StubNode/startPointReference"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//StubNode/endPointReference"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//StubNode/referencedMap"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//StubNode/family"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//ForkCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//ForkCondition/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//ExtensibleElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coremodel.ecore#//ExtensibleElement/extendedData"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//EStringToEObjectMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//EStringToEObjectMapEntry/key"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//EStringToEObjectMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//ConditionEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//ConditionEvent/conditionEvent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coremodel.ecore#//ConditionEvent/description"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//ConditionEvent/associatedConditions"/>
+    </genClasses>
+    <genClasses ecoreClass="coremodel.ecore#//ConditionEventToConditionEventMapEntry">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//ConditionEventToConditionEventMapEntry/key"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference coremodel.ecore#//ConditionEventToConditionEventMapEntry/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

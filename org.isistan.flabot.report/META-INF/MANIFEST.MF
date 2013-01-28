@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Flabot Reports Plug-in
+Bundle-SymbolicName: org.isistan.flabot.report;singleton:=true
+Bundle-Version: 0.1.0
+Bundle-ClassPath: report.jar,
+ lib/velocity-1.4.jar,
+ lib/velocity-dep-1.4.jar
+Bundle-Activator: org.isistan.flabot.report.ReportPlugin
+Bundle-Vendor: www.exa.unicen.edu.ar/isistan
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.isistan.flabot,
+ org.eclipse.emf.common,
+ org.eclipse.gef,
+ org.eclipse.ui.editors,
+ org.eclipse.core.runtime,
+ org.isistan.flabot.mapping,
+ org.eclipse.emf.ecore,
+ org.isistan.flabot.javamodel,
+ org.isistan.flabot.util,
+ org.eclipse.ui.ide,
+ org.eclipse.core.resources,
+ org.eclipse.ui.ide,
+ org.isistan.flabot.engine
+Eclipse-AutoStart: true

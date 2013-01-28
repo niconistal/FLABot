@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<org.isistan.flabot.edit.editormodel:FlabotFileModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.isistan.flabot.coremodel="http:///org/isistan/flabot/coremodel.ecore" xmlns:org.isistan.flabot.edit.componentmodel="http:///org/isistan/flabot/edit/componentmodel.ecore" xmlns:org.isistan.flabot.edit.editormodel="http:///org/isistan/flabot/edit/editormodel.ecore" xmlns:org.isistan.flabot.edit.ucmmodel="http:///org/isistan/flabot/edit/ucmmodel.ecore" xmlns:org.isistan.flabot.engine.executionstate="http:///org/isistan/flabot/engine/executionstate.ecore" xmlns:org.isistan.flabot.engine.executionstate.javalogtrace="http:///org/isistan/flabot/engine/executionstate/javalogtrace.ecore" xmlns:org.isistan.flabot.launcher.filter.filtermodel="http:///org/isistan/flabot/launcher/filter/filtermodel.ecore" xmlns:org.isistan.flabot.mapping.mappingmodel="http:///org/isistan/flabot/mapping/mappingmodel.ecore" name="Flabot Extensions" provider="ISISTAN" openDiagrams="//@diagrams.0 //@diagrams.1 //@diagrams.2 //@diagrams.3 //@diagrams.4 //@diagrams.5">
+  <coreModel architecturalUseCaseMaps="//@coreModel/@useCaseMaps.0 //@coreModel/@useCaseMaps.1" functionalUseCaseMaps="//@coreModel/@useCaseMaps.2 //@coreModel/@useCaseMaps.3" stubs="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.3 //@coreModel/@useCaseMaps.3/@paths.0/@nodes.3">
+    <components name="ExtensionRegistry" features="//@coreModel/@responsibilities.0">
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.eclipse\.core\.internal\.registry" behaviorPattern="" classPattern="@org\.eclipse\.core\.internal\.registry\.ExtensionRegistry" javaFilePattern="org\.eclipse\.core\.internal\.registry\.ExtensionRegistry\."/>
+      </extendedData>
+    </components>
+    <components name="ExtensionPoint" features="//@coreModel/@responsibilities.1">
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.eclipse\.core\.internal\.registry" behaviorPattern="" classPattern="@org\.eclipse\.core\.internal\.registry\.ExtensionPointHandle|@org\.eclipse\.core\.internal\.registry\.ExtensionPoint" javaFilePattern="org\.eclipse\.core\.internal\.registry\.ExtensionPointHandle\.|org\.eclipse\.core\.internal\.registry\.ExtensionPoint\."/>
+      </extendedData>
+    </components>
+    <components name="Extension" features="//@coreModel/@responsibilities.2">
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.eclipse\.core\.internal\.registry" behaviorPattern="" classPattern="@org\.eclipse\.core\.internal\.registry\.ExtensionHandle|@org\.eclipse\.core\.internal\.registry\.ConfigurationElementHandle" javaFilePattern="org\.eclipse\.core\.internal\.registry\.ExtensionHandle\.|org\.eclipse\.core\.internal\.registry\.ConfigurationElementHandle\."/>
+      </extendedData>
+    </components>
+    <components name="Bundle" features="//@coreModel/@responsibilities.4">
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.eclipse\.osgi\.framework\.internal\.core|org\.osgi\.framework|org\.eclipse\.core\.runtime\.adaptor" behaviorPattern="" classPattern="@org\.eclipse\.osgi\.framework\.internal\.core\.AbstractBundle|@org\.eclipse\.osgi\.framework\.internal\.core\.BundleHost|@org\.osgi\.framework\.Bundle|@org\.eclipse\.core\.runtime\.adaptor\.EclipseClassLoader" javaFilePattern="org\.eclipse\.osgi\.framework\.internal\.core\.AbstractBundle\.|org\.eclipse\.osgi\.framework\.internal\.core\.BundleHost\.|org\.osgi\.framework\.Bundle\.|org\.eclipse\.core\.runtime\.adaptor\.EclipseClassLoader\."/>
+      </extendedData>
+    </components>
+    <components name="Plugin" features="//@coreModel/@responsibilities.3">
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.eclipse\.core\.runtime" behaviorPattern="" classPattern="@org\.eclipse\.core\.runtime\.Plugin" javaFilePattern="org\.eclipse\.core\.runtime\.Plugin\."/>
+      </extendedData>
+    </components>
+    <components name="LauncherPlugin">
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.isistan\.flabot\.launcher" behaviorPattern="" classPattern="@org\.isistan\.flabot\.launcher\.LauncherPlugin" javaFilePattern="org\.isistan\.flabot\.launcher\.LauncherPlugin"/>
+      </extendedData>
+    </components>
+    <components name="LauncherTabs" features="//@coreModel/@responsibilities.5">
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.isistan\.flabot\.launcher\.tabs" behaviorPattern="" classPattern="@org\.isistan\.flabot\.launcher\.tabs\.AbstractConfigurationTab|@org\.isistan\.flabot\.launcher\.tabs\.DelegatingConfigurationTab|@org\.isistan\.flabot\.launcher\.tabs\.FlabotLauncherTabGroup|@org\.isistan\.flabot\.launcher\.tabs\.MainConfigurationTab" javaFilePattern="org\.isistan\.flabot\.launcher\.tabs\.AbstractConfigurationTab|org\.isistan\.flabot\.launcher\.tabs\.DelegatingConfigurationTab|org\.isistan\.flabot\.launcher\.tabs\.FlabotLauncherTabGroup|org\.isistan\.flabot\.launcher\.tabs\.MainConfigurationTab"/>
+      </extendedData>
+    </components>
+    <components name="FlabotNewFileWizard" features="//@coreModel/@responsibilities.6">
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.isistan\.flabot\.edit\.wizards" behaviorPattern="" classPattern="@org\.isistan\.flabot\.edit\.wizards\.FlabotNewWizard|@org\.isistan\.flabot\.edit\.wizards\.FlabotNewWizardPage" javaFilePattern="org\.isistan\.flabot\.edit\.wizards\.FlabotNewWizard|org\.isistan\.flabot\.edit\.wizards\.FlabotNewWizardPage"/>
+      </extendedData>
+    </components>
+    <components name="FlabotPlugin">
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.isistan\.flabot" behaviorPattern="" classPattern="@org\.isistan\.flabot\.FlabotPlugin" javaFilePattern="org\.isistan\.flabot\.FlabotPlugin"/>
+      </extendedData>
+    </components>
+    <responsibilities name="obtain extension point" components="//@coreModel/@components.0">
+      <extendedData key="org.isistan.flabot.launcher|logFilter">
+        <value xsi:type="org.isistan.flabot.launcher.filter.filtermodel:LogFilter" gaugeTypes="7"/>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.engine|stateDeterminationStrategy">
+        <value xsi:type="org.isistan.flabot.engine.executionstate:TraceBasedStateDeterminationStrategy" responsibility="//@coreModel/@responsibilities.0">
+          <traceInferenceStrategy xsi:type="org.isistan.flabot.engine.executionstate.javalogtrace:JavalogTraceInferenceStrategy"/>
+        </value>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.eclipse\.core\.internal\.registry" behaviorPattern="org\.eclipse\.core\.internal\.registry\.ExtensionRegistry#getExtensionPoint\(java\.lang\.String\):org\.eclipse\.core\.runtime\.IExtensionPoint|org\.eclipse\.core\.internal\.registry\.ExtensionRegistry#getExtensionPoint\(java\.lang\.String,java\.lang\.String\):org\.eclipse\.core\.runtime\.IExtensionPoint" classPattern="org\.eclipse\.core\.internal\.registry\.ExtensionRegistry" javaFilePattern="org\.eclipse\.core\.internal\.registry\.ExtensionRegistry\."/>
+      </extendedData>
+    </responsibilities>
+    <responsibilities name="get extensions" components="//@coreModel/@components.1">
+      <extendedData key="org.isistan.flabot.launcher|logFilter">
+        <value xsi:type="org.isistan.flabot.launcher.filter.filtermodel:LogFilter" gaugeTypes="7"/>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.engine|stateDeterminationStrategy">
+        <value xsi:type="org.isistan.flabot.engine.executionstate:TraceBasedStateDeterminationStrategy" responsibility="//@coreModel/@responsibilities.1">
+          <traceInferenceStrategy xsi:type="org.isistan.flabot.engine.executionstate.javalogtrace:JavalogTraceInferenceStrategy" prologCode="executionState('Faulty') :-&#xD;&#xA;&#x9;executionTag(T), isExitError(T).&#xD;&#xA;&#xD;&#xA;executionState('Executed') :-&#xD;&#xA;&#x9;executionTag(_).&#xD;&#xA;&#xD;&#xA;executionState('NotExecuted')."/>
+        </value>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.eclipse\.core\.internal\.registry" behaviorPattern="org\.eclipse\.core\.internal\.registry\.ExtensionPointHandle#getExtension\(java\.lang\.String\):org\.eclipse\.core\.runtime\.IExtension|org\.eclipse\.core\.internal\.registry\.ExtensionPointHandle#getExtensions\(\):org\.eclipse\.core\.runtime\.IExtension\[\]" classPattern="org\.eclipse\.core\.internal\.registry\.ExtensionPointHandle" javaFilePattern="org\.eclipse\.core\.internal\.registry\.ExtensionPointHandle\."/>
+      </extendedData>
+      <preconditions name="extension point obtained" value="precondition( extension point obtained, obtain extension point, Extension Loading, extensionPointId )." useCaseMap="//@coreModel/@useCaseMaps.0" event="//@coreModel/@events.3" sourceResponsibility="//@coreModel/@useCaseMaps.0/@paths.2/@nodes.1" dependencyResponsibility="//@coreModel/@useCaseMaps.0/@paths.0/@nodes.2"/>
+    </responsibilities>
+    <responsibilities name="get declarative attribute" components="//@coreModel/@components.2">
+      <extendedData key="org.isistan.flabot.launcher|logFilter">
+        <value xsi:type="org.isistan.flabot.launcher.filter.filtermodel:LogFilter" gaugeTypes="7"/>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.engine|stateDeterminationStrategy">
+        <value xsi:type="org.isistan.flabot.engine.executionstate:TraceBasedStateDeterminationStrategy" responsibility="//@coreModel/@responsibilities.2">
+          <traceInferenceStrategy xsi:type="org.isistan.flabot.engine.executionstate.javalogtrace:JavalogTraceInferenceStrategy" prologCode="executionState('Faulty') :-&#xD;&#xA;&#x9;executionTag(T), isExitError(T).&#xD;&#xA;&#xD;&#xA;executionState('Executed') :-&#xD;&#xA;&#x9;executionTag(_).&#xD;&#xA;&#xD;&#xA;executionState('NotExecuted')."/>
+        </value>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.eclipse\.core\.internal\.registry" behaviorPattern="org\.eclipse\.core\.internal\.registry\.ConfigurationElementHandle#getAttribute\(java\.lang\.String\):java\.lang\.String|org\.eclipse\.core\.internal\.registry\.ConfigurationElementHandle#getAttributeAsIs\(java\.lang\.String\):java\.lang\.String|org\.eclipse\.core\.internal\.registry\.ConfigurationElementHandle#createExecutableExtension\(java\.lang\.String\):java\.lang\.Object" classPattern="org\.eclipse\.core\.internal\.registry\.ConfigurationElementHandle" javaFilePattern="org\.eclipse\.core\.internal\.registry\.ConfigurationElementHandle\."/>
+      </extendedData>
+      <preconditions name="extension obtained" value="precondition( extension obtained, get extensions, Extension Loading, none )." useCaseMap="//@coreModel/@useCaseMaps.0" event="//@coreModel/@events.0" sourceResponsibility="//@coreModel/@useCaseMaps.0/@paths.1/@nodes.2" dependencyResponsibility="//@coreModel/@useCaseMaps.0/@paths.2/@nodes.1"/>
+    </responsibilities>
+    <responsibilities name="start" components="//@coreModel/@components.4">
+      <extendedData key="org.isistan.flabot.launcher|logFilter">
+        <value xsi:type="org.isistan.flabot.launcher.filter.filtermodel:LogFilter" gaugeTypes="7"/>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.engine|stateDeterminationStrategy">
+        <value xsi:type="org.isistan.flabot.engine.executionstate:TraceBasedStateDeterminationStrategy" responsibility="//@coreModel/@responsibilities.3">
+          <traceInferenceStrategy xsi:type="org.isistan.flabot.engine.executionstate.javalogtrace:JavalogTraceInferenceStrategy"/>
+        </value>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.eclipse\.core\.runtime" behaviorPattern="org\.eclipse\.core\.runtime\.Plugin#start\(org\.osgi\.framework\.BundleContext\):void" classPattern="org\.eclipse\.core\.runtime\.Plugin" javaFilePattern="org\.eclipse\.core\.runtime\.Plugin\."/>
+      </extendedData>
+    </responsibilities>
+    <responsibilities name="load class" components="//@coreModel/@components.3">
+      <extendedData key="org.isistan.flabot.launcher|logFilter">
+        <value xsi:type="org.isistan.flabot.launcher.filter.filtermodel:LogFilter" gaugeTypes="7"/>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.engine|stateDeterminationStrategy">
+        <value xsi:type="org.isistan.flabot.engine.executionstate:TraceBasedStateDeterminationStrategy" responsibility="//@coreModel/@responsibilities.4">
+          <traceInferenceStrategy xsi:type="org.isistan.flabot.engine.executionstate.javalogtrace:JavalogTraceInferenceStrategy" prologCode="executionState('Faulty') :-&#xD;&#xA;&#x9;executionTag(T), isExitError(T).&#xD;&#xA;&#xD;&#xA;executionState('Executed') :-&#xD;&#xA;&#x9;executionTag(_).&#xD;&#xA;&#xD;&#xA;executionState('NotExecuted')."/>
+        </value>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.osgi\.framework" behaviorPattern="org\.osgi\.framework\.Bundle#loadClass\(java\.lang\.String\):java\.lang\.Class" classPattern="org\.osgi\.framework\.Bundle" javaFilePattern="org\.osgi\.framework\.Bundle\."/>
+      </extendedData>
+      <preconditions name="class name obtained" value="precondition( class name obtained, get declarative attribute, Extension Loading, extensionClassName )." useCaseMap="//@coreModel/@useCaseMaps.0" event="//@coreModel/@events.1" sourceResponsibility="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.1" dependencyResponsibility="//@coreModel/@useCaseMaps.0/@paths.1/@nodes.2"/>
+    </responsibilities>
+    <responsibilities name="showLauncherTabs" components="//@coreModel/@components.6" description="show the flabot launcher tabs in the eclipse launch configuration dialog">
+      <extendedData key="org.isistan.flabot.engine|stateDeterminationStrategy">
+        <value xsi:type="org.isistan.flabot.engine.executionstate:TraceBasedStateDeterminationStrategy" responsibility="//@coreModel/@responsibilities.5">
+          <traceInferenceStrategy xsi:type="org.isistan.flabot.engine.executionstate.javalogtrace:JavalogTraceInferenceStrategy" prologCode="executionState('Faulty') :-&#xD;&#xA;&#x9;executionTag(T), isExitError(T).&#xD;&#xA;&#xD;&#xA;executionState('Executed') :-&#xD;&#xA;&#x9;executionTag(_).&#xD;&#xA;&#xD;&#xA;executionState('NotExecuted')."/>
+        </value>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.launcher|logFilter">
+        <value xsi:type="org.isistan.flabot.launcher.filter.filtermodel:LogFilter" gaugeTypes="7"/>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.isistan\.flabot\.launcher\.tabs" behaviorPattern="org\.isistan\.flabot\.launcher\.tabs\.AbstractConfigurationTab#&lt;init>\(\)|org\.isistan\.flabot\.launcher\.tabs\.MainConfigurationTab#&lt;init>\(org\.isistan\.flabot\.launcher\.tabs\.DelegatingConfigurationTab,org\.isistan\.flabot\.launcher\.tabs\.DelegatingConfigurationTab\)|org\.isistan\.flabot\.launcher\.tabs\.DelegatingConfigurationTab#&lt;init>\(java\.lang\.String,org\.eclipse\.swt\.graphics\.Image,org\.eclipse\.debug\.ui\.ILaunchConfigurationTab\)|org\.isistan\.flabot\.launcher\.tabs\.FlabotLauncherTabGroup#createTabs\(org\.eclipse\.debug\.ui\.ILaunchConfigurationDialog,java\.lang\.String\):void" classPattern="org\.isistan\.flabot\.launcher\.tabs\.AbstractConfigurationTab|org\.isistan\.flabot\.launcher\.tabs\.MainConfigurationTab|org\.isistan\.flabot\.launcher\.tabs\.DelegatingConfigurationTab|org\.isistan\.flabot\.launcher\.tabs\.FlabotLauncherTabGroup" javaFilePattern="org\.isistan\.flabot\.launcher\.tabs\.AbstractConfigurationTab|org\.isistan\.flabot\.launcher\.tabs\.MainConfigurationTab|org\.isistan\.flabot\.launcher\.tabs\.DelegatingConfigurationTab|org\.isistan\.flabot\.launcher\.tabs\.FlabotLauncherTabGroup"/>
+      </extendedData>
+    </responsibilities>
+    <responsibilities name="showNewFlabotPage" components="//@coreModel/@components.7" description="show the new flabot file wizard page">
+      <extendedData key="org.isistan.flabot.engine|stateDeterminationStrategy">
+        <value xsi:type="org.isistan.flabot.engine.executionstate:TraceBasedStateDeterminationStrategy" responsibility="//@coreModel/@responsibilities.6">
+          <traceInferenceStrategy xsi:type="org.isistan.flabot.engine.executionstate.javalogtrace:JavalogTraceInferenceStrategy" prologCode="executionState('Faulty') :-&#xD;&#xA;&#x9;executionTag(T), isExitError(T).&#xD;&#xA;&#xD;&#xA;executionState('Executed') :-&#xD;&#xA;&#x9;executionTag(_).&#xD;&#xA;&#xD;&#xA;executionState('NotExecuted')."/>
+        </value>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.launcher|logFilter">
+        <value xsi:type="org.isistan.flabot.launcher.filter.filtermodel:LogFilter" gaugeTypes="7"/>
+      </extendedData>
+      <extendedData key="org.isistan.flabot.mapping|mapping">
+        <value xsi:type="org.isistan.flabot.mapping.mappingmodel:PatternMapping" packagePattern="org\.isistan\.flabot\.edit\.wizards" behaviorPattern="org\.isistan\.flabot\.edit\.wizards\.FlabotNewWizardPage#createControl\(org\.eclipse\.swt\.widgets\.Composite\):void|org\.isistan\.flabot\.edit\.wizards\.FlabotNewWizard#addPages\(\):void" classPattern="org\.isistan\.flabot\.edit\.wizards\.FlabotNewWizardPage|org\.isistan\.flabot\.edit\.wizards\.FlabotNewWizard" javaFilePattern="org\.isistan\.flabot\.edit\.wizards\.FlabotNewWizardPage|org\.isistan\.flabot\.edit\.wizards\.FlabotNewWizard"/>
+      </extendedData>
+    </responsibilities>
+    <useCaseMaps name="Extension Loading" levelInfo="Architectural">
+      <paths name="NonamePath" endNodes="//@coreModel/@useCaseMaps.0/@paths.0/@nodes.1" startNodes="//@coreModel/@useCaseMaps.0/@paths.0/@nodes.0">
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" next="//@coreModel/@useCaseMaps.0/@paths.0/@nodes.2" name="extension point obtention begin"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" previous="//@coreModel/@useCaseMaps.0/@paths.0/@nodes.2" name="extension point obtention end"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:ResponsibilityNode" previous="//@coreModel/@useCaseMaps.0/@paths.0/@nodes.0" next="//@coreModel/@useCaseMaps.0/@paths.0/@nodes.1" map="//@coreModel/@useCaseMaps.0" responsibility="//@coreModel/@responsibilities.0" role="//@coreModel/@useCaseMaps.0/@componentRoles.0"/>
+      </paths>
+      <paths name="NonamePath" endNodes="//@coreModel/@useCaseMaps.0/@paths.1/@nodes.1" startNodes="//@coreModel/@useCaseMaps.0/@paths.1/@nodes.0">
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" next="//@coreModel/@useCaseMaps.0/@paths.1/@nodes.2" name="declarative attribute obtention begin"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" previous="//@coreModel/@useCaseMaps.0/@paths.1/@nodes.2" name="declarative attribute obtention end"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:ResponsibilityNode" previous="//@coreModel/@useCaseMaps.0/@paths.1/@nodes.0" next="//@coreModel/@useCaseMaps.0/@paths.1/@nodes.1" map="//@coreModel/@useCaseMaps.0" responsibility="//@coreModel/@responsibilities.2" role="//@coreModel/@useCaseMaps.0/@componentRoles.2"/>
+      </paths>
+      <paths name="NonamePath" endNodes="//@coreModel/@useCaseMaps.0/@paths.2/@nodes.0" startNodes="//@coreModel/@useCaseMaps.0/@paths.2/@nodes.2">
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" previous="//@coreModel/@useCaseMaps.0/@paths.2/@nodes.1" name="extensions obtention end"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:ResponsibilityNode" previous="//@coreModel/@useCaseMaps.0/@paths.2/@nodes.2" next="//@coreModel/@useCaseMaps.0/@paths.2/@nodes.0" map="//@coreModel/@useCaseMaps.0" responsibility="//@coreModel/@responsibilities.1" role="//@coreModel/@useCaseMaps.0/@componentRoles.1"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" next="//@coreModel/@useCaseMaps.0/@paths.2/@nodes.1" name="extensions obtention begin"/>
+      </paths>
+      <componentRoles component="//@coreModel/@components.0"/>
+      <componentRoles name="theEP" component="//@coreModel/@components.1"/>
+      <componentRoles name="anExtension" component="//@coreModel/@components.2"/>
+    </useCaseMaps>
+    <useCaseMaps name="Extension Class Loading" levelInfo="Architectural">
+      <paths name="NonamePath" endNodes="//@coreModel/@useCaseMaps.1/@paths.0/@nodes.1" startNodes="//@coreModel/@useCaseMaps.1/@paths.0/@nodes.2">
+        <nodes xsi:type="org.isistan.flabot.coremodel:ResponsibilityNode" previous="//@coreModel/@useCaseMaps.1/@paths.0/@nodes.2" next="//@coreModel/@useCaseMaps.1/@paths.0/@nodes.1" map="//@coreModel/@useCaseMaps.1" responsibility="//@coreModel/@responsibilities.3" role="//@coreModel/@useCaseMaps.1/@componentRoles.1"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" previous="//@coreModel/@useCaseMaps.1/@paths.0/@nodes.0" name="start plugin end"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" next="//@coreModel/@useCaseMaps.1/@paths.0/@nodes.0" name="start plugin begin"/>
+      </paths>
+      <paths name="NonamePath" endNodes="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.2" startNodes="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.0">
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" next="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.1" name="load class begin"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:ResponsibilityNode" previous="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.0" next="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.2" map="//@coreModel/@useCaseMaps.1" responsibility="//@coreModel/@responsibilities.4" role="//@coreModel/@useCaseMaps.1/@componentRoles.0"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" previous="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.1" name="load class end"/>
+      </paths>
+      <componentRoles name="extensionBundle" component="//@coreModel/@components.3"/>
+      <componentRoles name="extensionPlugin" component="//@coreModel/@components.4" abstractInfo="RedefinedComponent"/>
+    </useCaseMaps>
+    <useCaseMaps name="Flabot launcher tabs">
+      <paths name="NonamePath" endNodes="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.1" startNodes="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.0">
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" next="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.3"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" previous="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.2"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:ResponsibilityNode" previous="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.3" next="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.1" map="//@coreModel/@useCaseMaps.2" responsibility="//@coreModel/@responsibilities.5" role="//@coreModel/@useCaseMaps.2/@componentRoles.1"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:StubNode" previous="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.0" next="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.2" name="tab class load" map="//@coreModel/@useCaseMaps.2" startPointReference="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.0" endPointReference="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.2" referencedMap="//@coreModel/@useCaseMaps.1" family="//@coreModel/@families.0"/>
+      </paths>
+      <componentRoles name="launcherPlugin" component="//@coreModel/@components.5"/>
+      <componentRoles name="launcherTabs" component="//@coreModel/@components.6"/>
+    </useCaseMaps>
+    <useCaseMaps name="Flabot New File Wizard">
+      <paths name="NonamePath" endNodes="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.1" startNodes="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.0">
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" next="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.3"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:SimplePathNode" previous="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.2"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:ResponsibilityNode" previous="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.3" next="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.1" map="//@coreModel/@useCaseMaps.3" responsibility="//@coreModel/@responsibilities.6" role="//@coreModel/@useCaseMaps.3/@componentRoles.0"/>
+        <nodes xsi:type="org.isistan.flabot.coremodel:StubNode" previous="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.0" next="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.2" name="load flabot wizard class" map="//@coreModel/@useCaseMaps.3" startPointReference="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.0" endPointReference="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.2" referencedMap="//@coreModel/@useCaseMaps.1" family="//@coreModel/@families.1"/>
+      </paths>
+      <componentRoles name="aWizard" component="//@coreModel/@components.7"/>
+      <componentRoles name="aPlugin" component="//@coreModel/@components.8"/>
+    </useCaseMaps>
+    <families name="Flabot launcher family" associatedResponsibilities="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.3" architecturalUseCaseMaps="//@coreModel/@useCaseMaps.1 //@coreModel/@useCaseMaps.0" functionalUseCaseMaps="//@coreModel/@useCaseMaps.2 //@coreModel/@useCaseMaps.1 //@coreModel/@useCaseMaps.0">
+      <familyElement name="Flabot launcher family" useCaseMap="//@coreModel/@useCaseMaps.1" functionalComponent="//@coreModel/@useCaseMaps.1/@componentRoles.0" architecturalComponent="//@coreModel/@useCaseMaps.1/@componentRoles.0"/>
+      <familyElement name="Flabot launcher family" useCaseMap="//@coreModel/@useCaseMaps.1" functionalComponent="//@coreModel/@useCaseMaps.2/@componentRoles.0" architecturalComponent="//@coreModel/@useCaseMaps.1/@componentRoles.1"/>
+      <familyElement name="Flabot launcher family" useCaseMap="//@coreModel/@useCaseMaps.0" functionalComponent="//@coreModel/@useCaseMaps.0/@componentRoles.0" architecturalComponent="//@coreModel/@useCaseMaps.0/@componentRoles.0"/>
+      <familyElement name="Flabot launcher family" useCaseMap="//@coreModel/@useCaseMaps.0" functionalComponent="//@coreModel/@useCaseMaps.0/@componentRoles.1" architecturalComponent="//@coreModel/@useCaseMaps.0/@componentRoles.1"/>
+      <familyElement name="Flabot launcher family" useCaseMap="//@coreModel/@useCaseMaps.0" functionalComponent="//@coreModel/@useCaseMaps.0/@componentRoles.2" architecturalComponent="//@coreModel/@useCaseMaps.0/@componentRoles.2"/>
+      <events key="//@coreModel/@events.0" value="//@coreModel/@events.0"/>
+      <events key="//@coreModel/@events.1" value="//@coreModel/@events.2"/>
+      <events key="//@coreModel/@events.3" value="//@coreModel/@events.4"/>
+    </families>
+    <families name="Flabot wizard family" associatedResponsibilities="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.3" architecturalUseCaseMaps="//@coreModel/@useCaseMaps.1 //@coreModel/@useCaseMaps.0" functionalUseCaseMaps="//@coreModel/@useCaseMaps.3 //@coreModel/@useCaseMaps.1 //@coreModel/@useCaseMaps.0">
+      <familyElement name="Flabot wizard family" useCaseMap="//@coreModel/@useCaseMaps.1" functionalComponent="//@coreModel/@useCaseMaps.1/@componentRoles.0" architecturalComponent="//@coreModel/@useCaseMaps.1/@componentRoles.0"/>
+      <familyElement name="Flabot wizard family" useCaseMap="//@coreModel/@useCaseMaps.1" functionalComponent="//@coreModel/@useCaseMaps.3/@componentRoles.1" architecturalComponent="//@coreModel/@useCaseMaps.1/@componentRoles.1"/>
+      <familyElement name="Flabot wizard family" useCaseMap="//@coreModel/@useCaseMaps.0" functionalComponent="//@coreModel/@useCaseMaps.0/@componentRoles.0" architecturalComponent="//@coreModel/@useCaseMaps.0/@componentRoles.0"/>
+      <familyElement name="Flabot wizard family" useCaseMap="//@coreModel/@useCaseMaps.0" functionalComponent="//@coreModel/@useCaseMaps.0/@componentRoles.1" architecturalComponent="//@coreModel/@useCaseMaps.0/@componentRoles.1"/>
+      <familyElement name="Flabot wizard family" useCaseMap="//@coreModel/@useCaseMaps.0" functionalComponent="//@coreModel/@useCaseMaps.0/@componentRoles.2" architecturalComponent="//@coreModel/@useCaseMaps.0/@componentRoles.2"/>
+      <events key="//@coreModel/@events.0" value="//@coreModel/@events.0"/>
+      <events key="//@coreModel/@events.1" value="//@coreModel/@events.5"/>
+      <events key="//@coreModel/@events.3" value="//@coreModel/@events.6"/>
+    </families>
+    <events name="none" associatedConditions="//@coreModel/@responsibilities.2/@preconditions.0"/>
+    <events name="extensionClassName" description="the extension class name must have been obtained" associatedConditions="//@coreModel/@responsibilities.4/@preconditions.0"/>
+    <events name="launcherTabClassNames" conditionEvent="eventPreFilter(launcherTabClassNames).&#xD;&#xA;&#xD;&#xA;eventPreFilterAccepts(launcherTabClassNames, Tag) :-&#xD;&#xA;&#x9;argument(Tag, ArgumentField),&#xD;&#xA;&#x9;snapshotToString(ArgumentField, ArgumentFieldString),&#xD;&#xA;&#x9;stringsEqual(ArgumentFieldString, 'class'),&#xD;&#xA;&#x9;returnValue(Tag, ReturnValue),&#xD;&#xA;&#x9;snapshotObject(ReturnValue, ReturnValueObject),&#xD;&#xA;&#x9;objectClass(ReturnValueObject, ReturnValueClass),&#xD;&#xA;&#x9;classDescriptor(ReturnValueClass, ReturnValueDescriptor),&#xD;&#xA;&#x9;stringContains(ReturnValueDescriptor, 'org.isistan.flabot.launcher')." description="filter the class names for the flabot laucher tabs"/>
+    <events name="extensionPointId" description="the obtained extension point must be of the given id" associatedConditions="//@coreModel/@responsibilities.1/@preconditions.0"/>
+    <events name="tabGroupExtensionPointId" conditionEvent="eventPreFilter(tabGroupExtensionPointId).&#xD;&#xA;&#xD;&#xA;eventPreFilterAccepts(tabGroupExtensionPointId, Tag) :-&#xD;&#xA;&#x9;argument(Tag, ArgumentField),&#xD;&#xA;&#x9;snapshotToString(ArgumentField, ArgumentFieldString),&#xD;&#xA;&#x9;stringContains(ArgumentFieldString, 'launch'),&#xD;&#xA;&#x9;stringContains(ArgumentFieldString, 'Tab')." description="filter extension point obtentions for the tabGroup"/>
+    <events name="wizardClassNames" conditionEvent="eventPreFilter(wizardClassNames).&#xD;&#xA;&#xD;&#xA;eventPreFilterAccepts(wizardClassNames, Tag) :-&#xD;&#xA;&#x9;argument(Tag, ArgumentField),&#xD;&#xA;&#x9;snapshotToString(ArgumentField, ArgumentFieldString),&#xD;&#xA;&#x9;stringsEqual(ArgumentFieldString, 'class'),&#xD;&#xA;&#x9;returnValue(Tag, ReturnValue),&#xD;&#xA;&#x9;snapshotObject(ReturnValue, ReturnValueObject),&#xD;&#xA;&#x9;objectClass(ReturnValueObject, ReturnValueClass),&#xD;&#xA;&#x9;classDescriptor(ReturnValueClass, ReturnValueDescriptor),&#xD;&#xA;&#x9;stringContains(ReturnValueDescriptor, 'org.isistan.flabot.edit'),&#xD;&#xA;&#x9;stringContains(ReturnValueDescriptor, 'Wizard')." description="filter the class names for the new flabot file wizard"/>
+    <events name="wizardExtensionPointId" conditionEvent="eventPreFilter(wizardExtensionPointId).&#xD;&#xA;&#xD;&#xA;eventPreFilterAccepts(wizardExtensionPointId, Tag) :-&#xD;&#xA;&#x9;argument(Tag, ArgumentField),&#xD;&#xA;&#x9;snapshotToString(ArgumentField, ArgumentFieldString),&#xD;&#xA;&#x9;stringContains(ArgumentFieldString, 'newWizard')." description="filter the tags for the new wizard extension point"/>
+  </coreModel>
+  <diagrams xsi:type="org.isistan.flabot.edit.componentmodel:ComponentDiagram" name="Extensions Loading Components" coreModel="//@coreModel">
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@components.0" detailLevel="2">
+      <location x="125" y="197"/>
+      <size width="262" height="122"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@components.1" detailLevel="2">
+      <location x="-18" y="24"/>
+      <size width="291" height="122"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@components.2" detailLevel="2">
+      <location x="240" y="20"/>
+      <size width="333" height="122"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@components.3" detailLevel="2">
+      <location x="17" y="390"/>
+      <size width="258" height="152"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@components.4" detailLevel="2">
+      <location x="234" y="404"/>
+      <size width="258" height="122"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+  </diagrams>
+  <diagrams xsi:type="org.isistan.flabot.edit.ucmmodel:UCMDiagram" name="Extension Loading" coreModel="//@coreModel" map="//@coreModel/@useCaseMaps.0">
+    <notes note="When this responsibility's log is empty, it's because the declaration of the extension hasn 't been detected by the platform, because it was specified incorrectly in its plugin.xml." targets="//@coreModel/@useCaseMaps.0/@paths.1/@nodes.2"/>
+    <notes note="When this responsibility's log is empty, it's because the extension point is not present (probably because the declaring plugin hasn't been installed).&#xD;&#xA;If the declaring plugin is certainly installed, the bug has been logged incorrectly." targets="//@coreModel/@useCaseMaps.0/@paths.0/@nodes.2"/>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.0/@componentRoles.2">
+      <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.0/@paths.1/@nodes.2" detailLevel="2" targetConnections="//@diagrams.1/@children.7/@sourceConnections.0 //@diagrams.1/@children.9/@sourceConnections.0">
+        <location x="100" y="100"/>
+        <size width="15" height="15"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+        <sourceConnections semanticModel="//@coreModel/@useCaseMaps.0/@paths.1" target="//@diagrams.1/@children.8">
+          <location/>
+          <size width="-1" height="-1"/>
+          <backgroundColor red="255" green="255" blue="255"/>
+          <foregroundColor/>
+        </sourceConnections>
+        <sourceConnections semanticModel="//@coreModel/@responsibilities.2/@preconditions.0" lineStyle="2" lineWidth="2" target="//@diagrams.1/@children.1/@children.0">
+          <location/>
+          <size width="-1" height="-1"/>
+          <backgroundColor red="255" green="255" blue="255"/>
+          <foregroundColor blue="255"/>
+          <bendpoints>
+            <firstRelativeDimension width="150" height="-69"/>
+            <secondRelativeDimension width="99" height="125"/>
+          </bendpoints>
+        </sourceConnections>
+      </children>
+      <location x="205" y="448"/>
+      <size width="232" height="140"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.0/@componentRoles.1">
+      <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.0/@paths.2/@nodes.1" detailLevel="2" targetConnections="//@diagrams.1/@children.5/@sourceConnections.0 //@diagrams.1/@children.0/@children.0/@sourceConnections.1">
+        <location x="144" y="101"/>
+        <size width="15" height="15"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+        <sourceConnections semanticModel="//@coreModel/@useCaseMaps.0/@paths.2" target="//@diagrams.1/@children.6">
+          <location/>
+          <size width="-1" height="-1"/>
+          <backgroundColor red="255" green="255" blue="255"/>
+          <foregroundColor/>
+        </sourceConnections>
+        <sourceConnections semanticModel="//@coreModel/@responsibilities.1/@preconditions.0" lineStyle="2" lineWidth="2" target="//@diagrams.1/@children.2/@children.0">
+          <location/>
+          <size width="-1" height="-1"/>
+          <backgroundColor red="255" green="255" blue="255"/>
+          <foregroundColor blue="255"/>
+        </sourceConnections>
+      </children>
+      <location x="212" y="253"/>
+      <size width="243" height="128"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.0/@componentRoles.0">
+      <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.0/@paths.0/@nodes.2" detailLevel="2" targetConnections="//@diagrams.1/@children.3/@sourceConnections.0 //@diagrams.1/@children.1/@children.0/@sourceConnections.1 //@diagrams.1/@children.10/@sourceConnections.0">
+        <location x="60" y="71"/>
+        <size width="15" height="15"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+        <sourceConnections semanticModel="//@coreModel/@useCaseMaps.0/@paths.0" target="//@diagrams.1/@children.4">
+          <location/>
+          <size width="-1" height="-1"/>
+          <backgroundColor red="255" green="255" blue="255"/>
+          <foregroundColor/>
+        </sourceConnections>
+      </children>
+      <location x="211" y="58"/>
+      <size width="152" height="153"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.0/@paths.0/@nodes.0">
+      <location x="154" y="44"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+      <sourceConnections semanticModel="//@coreModel/@useCaseMaps.0/@paths.0" target="//@diagrams.1/@children.2/@children.0">
+        <location/>
+        <size width="-1" height="-1"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+      </sourceConnections>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.0/@paths.0/@nodes.1" targetConnections="//@diagrams.1/@children.2/@children.0/@sourceConnections.0">
+      <location x="456" y="183"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.0/@paths.2/@nodes.2">
+      <location x="152" y="248"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+      <sourceConnections semanticModel="//@coreModel/@useCaseMaps.0/@paths.2" target="//@diagrams.1/@children.1/@children.0">
+        <location/>
+        <size width="-1" height="-1"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+      </sourceConnections>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.0/@paths.2/@nodes.0" targetConnections="//@diagrams.1/@children.1/@children.0/@sourceConnections.0">
+      <location x="521" y="393"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.0/@paths.1/@nodes.0">
+      <location x="162" y="469"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+      <sourceConnections semanticModel="//@coreModel/@useCaseMaps.0/@paths.1" targetTerminal="Terminal.Right" target="//@diagrams.1/@children.0/@children.0">
+        <location/>
+        <size width="-1" height="-1"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+      </sourceConnections>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.0/@paths.1/@nodes.1" targetConnections="//@diagrams.1/@children.0/@children.0/@sourceConnections.0">
+      <location x="536" y="584"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@diagrams.1/@notes.0">
+      <location x="625" y="356"/>
+      <size width="181" height="98"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+      <sourceConnections semanticModel="//@diagrams.1/@notes.0" target="//@diagrams.1/@children.0/@children.0">
+        <location/>
+        <size width="-1" height="-1"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+      </sourceConnections>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@diagrams.1/@notes.1">
+      <location x="461" y="53"/>
+      <size width="265" height="89"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+      <sourceConnections semanticModel="//@diagrams.1/@notes.1" target="//@diagrams.1/@children.2/@children.0">
+        <location/>
+        <size width="-1" height="-1"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+      </sourceConnections>
+    </children>
+  </diagrams>
+  <diagrams xsi:type="org.isistan.flabot.edit.ucmmodel:UCMDiagram" name="Extension Class Loading" coreModel="//@coreModel" map="//@coreModel/@useCaseMaps.1">
+    <notes note="a faulty state in this responsibility is commonly caused by a wrong class name in the extension's plugin.xml" targets="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.1"/>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.1/@componentRoles.1">
+      <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.1/@paths.0/@nodes.0" detailLevel="2" targetConnections="//@diagrams.2/@children.2/@sourceConnections.0">
+        <location x="60" y="82"/>
+        <size width="15" height="15"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+        <sourceConnections semanticModel="//@coreModel/@useCaseMaps.1/@paths.0" target="//@diagrams.2/@children.5">
+          <location/>
+          <size width="-1" height="-1"/>
+          <backgroundColor red="255" green="255" blue="255"/>
+          <foregroundColor/>
+        </sourceConnections>
+      </children>
+      <location x="119" y="508"/>
+      <size width="193" height="159"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.1/@componentRoles.0">
+      <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.1" detailLevel="2" targetConnections="//@diagrams.2/@children.4/@sourceConnections.0 //@diagrams.2/@children.7/@sourceConnections.0">
+        <location x="88" y="123"/>
+        <size width="15" height="15"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+        <sourceConnections semanticModel="//@coreModel/@useCaseMaps.1/@paths.1" targetTerminal="Terminal.Left2" target="//@diagrams.2/@children.3">
+          <location/>
+          <size width="-1" height="-1"/>
+          <backgroundColor red="255" green="255" blue="255"/>
+          <foregroundColor/>
+        </sourceConnections>
+        <sourceConnections semanticModel="//@coreModel/@responsibilities.4/@preconditions.0" lineStyle="2" lineWidth="2" target="//@diagrams.2/@children.6">
+          <location/>
+          <size width="-1" height="-1"/>
+          <backgroundColor red="255" green="255" blue="255"/>
+          <foregroundColor blue="255"/>
+        </sourceConnections>
+      </children>
+      <location x="155" y="87"/>
+      <size width="200" height="171"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.1/@paths.0/@nodes.2">
+      <location x="154" y="467"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+      <sourceConnections semanticModel="//@coreModel/@useCaseMaps.1/@paths.0" target="//@diagrams.2/@children.0/@children.0">
+        <location/>
+        <size width="-1" height="-1"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+      </sourceConnections>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.2" targetConnections="//@diagrams.2/@children.1/@children.0/@sourceConnections.0">
+      <location x="297" y="372"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.1/@paths.1/@nodes.0" detailLevel="2">
+      <location x="76" y="206"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+      <sourceConnections semanticModel="//@coreModel/@useCaseMaps.1/@paths.1" sourceTerminal="Terminal.Left2" target="//@diagrams.2/@children.1/@children.0">
+        <location/>
+        <size width="-1" height="-1"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+      </sourceConnections>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.1/@paths.0/@nodes.1" targetConnections="//@diagrams.2/@children.0/@children.0/@sourceConnections.0">
+      <location x="242" y="707"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:VisualDiagramJump" lineWidth="2" targetConnections="//@diagrams.2/@children.1/@children.0/@sourceConnections.1" sourceDiagram="//@diagrams.2" targetDiagram="//@diagrams.1" targetVisualNode="//@diagrams.1/@children.0/@children.0" to="true">
+      <location x="243" y="298"/>
+      <size width="21" height="21"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@diagrams.2/@notes.0">
+      <location x="407" y="283"/>
+      <size width="181" height="72"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+      <sourceConnections semanticModel="//@diagrams.2/@notes.0" target="//@diagrams.2/@children.1/@children.0">
+        <location/>
+        <size width="-1" height="-1"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+      </sourceConnections>
+    </children>
+  </diagrams>
+  <diagrams xsi:type="org.isistan.flabot.edit.componentmodel:ComponentDiagram" name="Flabot components" coreModel="//@coreModel" folder="//@folder/@folders.0">
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@components.5" detailLevel="2">
+      <location x="105" y="121"/>
+      <size width="258" height="89"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@components.6" detailLevel="2">
+      <location x="248" y="275"/>
+      <size width="258" height="104"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@components.7" detailLevel="2">
+      <location x="107" y="458"/>
+      <size width="272" height="104"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@components.8" detailLevel="2">
+      <location x="374" y="475"/>
+      <size width="258" height="89"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+  </diagrams>
+  <diagrams xsi:type="org.isistan.flabot.edit.ucmmodel:UCMDiagram" name="Flabot launcher tabs" coreModel="//@coreModel" folder="//@folder/@folders.0" map="//@coreModel/@useCaseMaps.2">
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.2/@componentRoles.1">
+      <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.2" targetConnections="//@diagrams.4/@children.4/@sourceConnections.0">
+        <location x="63" y="23"/>
+        <size width="15" height="15"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+        <sourceConnections semanticModel="//@coreModel/@useCaseMaps.2/@paths.0" target="//@diagrams.4/@children.3">
+          <location/>
+          <size width="-1" height="-1"/>
+          <backgroundColor red="255" green="255" blue="255"/>
+          <foregroundColor/>
+        </sourceConnections>
+      </children>
+      <location x="205" y="261"/>
+      <size width="199" height="75"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.2/@componentRoles.0">
+      <location x="317" y="93"/>
+      <size width="219" height="60"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.0">
+      <location x="47" y="192"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+      <sourceConnections semanticModel="//@coreModel/@useCaseMaps.2/@paths.0" target="//@diagrams.4/@children.4">
+        <location/>
+        <size width="-1" height="-1"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+      </sourceConnections>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.1" targetConnections="//@diagrams.4/@children.0/@children.0/@sourceConnections.0">
+      <location x="442" y="245"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.2/@paths.0/@nodes.3" targetConnections="//@diagrams.4/@children.2/@sourceConnections.0">
+      <location x="134" y="263"/>
+      <size width="15" height="15"/>
+      <backgroundColor/>
+      <foregroundColor/>
+      <sourceConnections semanticModel="//@coreModel/@useCaseMaps.2/@paths.0" target="//@diagrams.4/@children.0/@children.0">
+        <location/>
+        <size width="-1" height="-1"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+      </sourceConnections>
+    </children>
+  </diagrams>
+  <diagrams xsi:type="org.isistan.flabot.edit.ucmmodel:UCMDiagram" name="Flabot New File Wizard" coreModel="//@coreModel" folder="//@folder/@folders.0" map="//@coreModel/@useCaseMaps.3">
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.3/@componentRoles.1">
+      <location x="403" y="48"/>
+      <size width="150" height="60"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.3/@componentRoles.0">
+      <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.2" targetConnections="//@diagrams.5/@children.4/@sourceConnections.0">
+        <location x="64" y="20"/>
+        <size width="15" height="15"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+        <sourceConnections semanticModel="//@coreModel/@useCaseMaps.3/@paths.0" target="//@diagrams.5/@children.3">
+          <location/>
+          <size width="-1" height="-1"/>
+          <backgroundColor red="255" green="255" blue="255"/>
+          <foregroundColor/>
+        </sourceConnections>
+      </children>
+      <location x="212" y="169"/>
+      <size width="216" height="75"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.0">
+      <location x="90" y="108"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+      <sourceConnections semanticModel="//@coreModel/@useCaseMaps.3/@paths.0" target="//@diagrams.5/@children.4">
+        <location/>
+        <size width="-1" height="-1"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+      </sourceConnections>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.1" targetConnections="//@diagrams.5/@children.1/@children.0/@sourceConnections.0">
+      <location x="457" y="294"/>
+      <size width="15" height="15"/>
+      <backgroundColor red="255" green="255" blue="255"/>
+      <foregroundColor/>
+    </children>
+    <children xsi:type="org.isistan.flabot.edit.editormodel:NodeVisualModel" semanticModel="//@coreModel/@useCaseMaps.3/@paths.0/@nodes.3" targetConnections="//@diagrams.5/@children.2/@sourceConnections.0">
+      <location x="145" y="174"/>
+      <size width="15" height="15"/>
+      <backgroundColor/>
+      <foregroundColor/>
+      <sourceConnections semanticModel="//@coreModel/@useCaseMaps.3/@paths.0" target="//@diagrams.5/@children.1/@children.0">
+        <location/>
+        <size width="-1" height="-1"/>
+        <backgroundColor red="255" green="255" blue="255"/>
+        <foregroundColor/>
+      </sourceConnections>
+    </children>
+  </diagrams>
+  <folder name="Diagrams" fileModel="/">
+    <folders name="Functional Scenarios" diagrams="//@diagrams.3 //@diagrams.4 //@diagrams.5" fileModel="/"/>
+  </folder>
+</org.isistan.flabot.edit.editormodel:FlabotFileModel>

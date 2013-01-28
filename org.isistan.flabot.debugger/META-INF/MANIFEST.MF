@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FLABot Debugger Plug-in
+Bundle-SymbolicName: org.isistan.flabot.debugger;singleton:=true
+Bundle-Version: 0.1.1
+Bundle-ClassPath: lib/debugger.jar
+Bundle-Activator: org.isistan.flabot.debugger.DebuggerPlugin
+Bundle-Vendor: www.exa.unicen.edu.ar/isistan/
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.debug,
+ org.eclipse.core.resources,
+ org.eclipse.jdt.core,
+ org.isistan.flabot,
+ org.isistan.flabot.engine,
+ org.isistan.flabot.javamodel,
+ org.isistan.flabot.util,
+ org.isistan.flabot.javamodel.jdt,
+ org.isistan.flabot.mapping,
+ org.eclipse.debug.core,
+ org.eclipse.emf.common,
+ org.eclipse.emf.ecore
+Eclipse-AutoStart: true

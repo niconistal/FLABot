@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FLABot Instrumentation Plug-in
+Bundle-SymbolicName: org.isistan.flabot.instrumentation
+Bundle-Version: 0.1.1
+Bundle-ClassPath: lib/instrumentation.jar
+Bundle-Vendor: www.exa.unicen.edu.ar/isistan/
+Bundle-Localization: plugin
+Export-Package: org.isistan.flabot.instrumentation,
+ org.isistan.flabot.instrumentation.classloader,
+ org.isistan.flabot.instrumentation.launcher
+Require-Bundle: org.isistan.flabot.javassist

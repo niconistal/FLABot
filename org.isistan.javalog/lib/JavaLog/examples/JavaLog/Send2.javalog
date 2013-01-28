@@ -1,0 +1,34 @@
+//-*-jde-*-
+package JavaLog.examples;
+
+import JavaLog.* ; 
+import java.util.* ; 
+
+public class Send2 { 
+    public static void main(String args[])  { 
+        boolean result  ; 
+        Brain brain = new Brain(); 
+        Vector  v  = new Vector(); 
+	//        KnowledgeLogic  = new KnowledgeLogic(brain,""); 
+	String a = "A";
+        v.addElement(a);
+	v.addElement("B");
+	
+	if( ?-send(#v#,elementAt,[1],X). ) {
+	    System.out.println( "elementsAt OK!" );
+	    System.out.println(brain.answer());
+	}
+	else
+	    System.out.println( "elementsAt FAILED" );	
+
+	if( ?-send(#v#,removeElement,[#a#]). )
+	    System.out.println( "removeElement OK!" );
+	else
+	    System.out.println( "removeElement FAILED" );	
+
+	System.out.println( v );
+
+	if( ?-send(#v#,removeAllElements,[],X). )
+	    System.out.println( "removeAllElements OK!" );
+    } 
+}
